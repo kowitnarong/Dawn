@@ -5,7 +5,7 @@ using Photon.Realtime;
 using Cinemachine;
 using UnityEngine.InputSystem;
 
-public class PunNetworkManager : ConnectAndJoinRandom 
+public class PunNetworkManager : ConnectAndJoinRandom
 {
     public static PunNetworkManager singleton;
     //public CinemachineVirtualCamera _vCam;
@@ -14,6 +14,8 @@ public class PunNetworkManager : ConnectAndJoinRandom
     [Header("Player Info")]
     [SerializeField] private bool _isPlayer1;
     [SerializeField] private bool _isPlayer2;
+    [SerializeField] private GameObject _player1;
+    [SerializeField] private GameObject _player2;
 
 
     //[Tooltip("The prefab to use for representing the player")]
@@ -22,6 +24,8 @@ public class PunNetworkManager : ConnectAndJoinRandom
     private void Awake()
     {
         singleton = this;
+        //_player1 = GameObject.Find("Player1");
+        //_player2 = GameObject.Find("Player2");
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -37,23 +41,19 @@ public class PunNetworkManager : ConnectAndJoinRandom
 
         if (PunUserNetControl.LocalPlayerInstance == null)
         {
-            Debug.Log("We are Instantiating LocalPlayer from " + 
+            Debug.Log("We are Instantiating LocalPlayer from " +
                                                SceneManagerHelper.ActiveSceneName);
             PunNetworkManager.singleton.SpawnPlayer();
         }
         else
         {
-            Debug.Log("Ignoring scene load for " + 
+            Debug.Log("Ignoring scene load for " +
                                                SceneManagerHelper.ActiveSceneName);
         }
     }
 
     public void SpawnPlayer()
     {
-        // we're in a room. spawn a character for the local player. 
-        // it gets synced by using PhotonNetwork.Instantiate
-        /*PhotonNetwork.Instantiate(GamePlayerPrefab.name, 
-                                 new Vector3(0f, 5f, 0f), 
-                                 Quaternion.identity, 0);*/
+        
     }
 }
