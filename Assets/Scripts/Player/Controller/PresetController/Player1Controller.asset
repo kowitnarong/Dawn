@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798b9d057fceb2245af241087a36aa12, type: 3}
   m_Name: Player1Controller
   m_EditorClassIdentifier: 
-  _moveSpeed: 5
+  _moveSpeed: 4
   _upKey: 37
   _downKey: 33

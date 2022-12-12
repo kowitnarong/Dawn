@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerControllerWithPreset : PlayerController
+public class Player1ControllerWithPreset : PlayerController
 {
-    [PunRPC]
+    [SerializeField] private PlayerInfo m_PlayerInfo;
+
+    private void Awake()
+    {
+        m_PlayerInfo = GameObject.Find("--PunNetworkManager--").GetComponent<PlayerInfo>();
+    }
+
     public override void MoveUp()
     {
-        photonView.RPC("Up", RpcTarget.All);
+        if (m_PlayerInfo._isPlayer1)
+        {
+            photonView.RPC("Up", RpcTarget.MasterClient);
+        }
     }
 
     [PunRPC]
@@ -17,10 +26,12 @@ public class PlayerControllerWithPreset : PlayerController
         transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
     }
 
-    [PunRPC]
     public override void MoveDown()
     {
-        photonView.RPC("Down", RpcTarget.All);
+        if (m_PlayerInfo._isPlayer1)
+        {
+            photonView.RPC("Down", RpcTarget.MasterClient);
+        }
     }
 
     [PunRPC]
