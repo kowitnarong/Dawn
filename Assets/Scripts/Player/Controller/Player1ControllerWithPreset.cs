@@ -16,7 +16,7 @@ public class Player1ControllerWithPreset : PlayerController
     {
         if (m_PlayerInfo._isPlayer1)
         {
-            photonView.RPC("Up", RpcTarget.MasterClient);
+            photonView.RPC("Up", RpcTarget.AllBuffered);
         }
     }
 
@@ -30,7 +30,7 @@ public class Player1ControllerWithPreset : PlayerController
     {
         if (m_PlayerInfo._isPlayer1)
         {
-            photonView.RPC("Down", RpcTarget.MasterClient);
+            photonView.RPC("Down", RpcTarget.AllBuffered);
         }
     }
 

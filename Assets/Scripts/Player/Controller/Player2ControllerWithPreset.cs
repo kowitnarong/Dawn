@@ -6,17 +6,29 @@ using Photon.Pun;
 public class Player2ControllerWithPreset : PlayerController
 {
     [SerializeField] private PlayerInfo m_PlayerInfo;
+    private bool isOwner = false;
 
     private void Awake()
     {
         m_PlayerInfo = GameObject.Find("--PunNetworkManager--").GetComponent<PlayerInfo>();
     }
 
+    private void Start()
+    {
+
+    }
+
     public override void MoveUp()
     {
+        if (m_PlayerInfo._isPlayer2 && isOwner == false)
+        {
+            OnOwnershipRequest();
+            isOwner = true;
+        }
+
         if (m_PlayerInfo._isPlayer2)
         {
-            photonView.RPC("Up", RpcTarget.MasterClient);
+            photonView.RPC("Up", RpcTarget.AllBuffered);
         }
     }
 
@@ -30,7 +42,7 @@ public class Player2ControllerWithPreset : PlayerController
     {
         if (m_PlayerInfo._isPlayer2)
         {
-            photonView.RPC("Down", RpcTarget.MasterClient);
+            photonView.RPC("Down", RpcTarget.AllBuffered);
         }
     }
 
@@ -38,5 +50,10 @@ public class Player2ControllerWithPreset : PlayerController
     public void Down()
     {
         transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+    }
+
+    public void OnOwnershipRequest()
+    {
+        GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
     }
 }

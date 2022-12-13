@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Photon.Pun;
 
-public abstract class PlayerController : MonoBehaviourPun, IPlayerController
+public abstract class PlayerController : MonoBehaviourPunCallbacks, IPlayerController
 {
 
     [SerializeField] protected PlayerControllerSettingsPreset m_Preset;
