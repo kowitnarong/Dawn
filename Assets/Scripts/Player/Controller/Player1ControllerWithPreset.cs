@@ -16,7 +16,8 @@ public class Player1ControllerWithPreset : PlayerController
     {
         if (m_PlayerInfo._isPlayer1)
         {
-            photonView.RPC("Up", RpcTarget.AllBuffered);
+            transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+            photonView.RPC("Up", RpcTarget.OthersBuffered);
         }
     }
 
@@ -30,6 +31,7 @@ public class Player1ControllerWithPreset : PlayerController
     {
         if (m_PlayerInfo._isPlayer1)
         {
+            transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
             photonView.RPC("Down", RpcTarget.AllBuffered);
         }
     }
