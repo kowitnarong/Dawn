@@ -1334,8 +1334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportIfFar: 0
   teleportIfFarDistance: 0
-  smoothPos: 10
-  smoothRot: 10
+  smoothPos: 5
+  smoothRot: 5
 --- !u!1 &2036648364
 GameObject:
   m_ObjectHideFlags: 0

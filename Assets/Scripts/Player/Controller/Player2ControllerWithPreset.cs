@@ -28,28 +28,16 @@ public class Player2ControllerWithPreset : PlayerController
 
         if (m_PlayerInfo._isPlayer2)
         {
-            photonView.RPC("Up", RpcTarget.AllBuffered);
+            transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
         }
-    }
-
-    [PunRPC]
-    public void Up()
-    {
-        transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
     }
 
     public override void MoveDown()
     {
         if (m_PlayerInfo._isPlayer2)
         {
-            photonView.RPC("Down", RpcTarget.AllBuffered);
+            transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
         }
-    }
-
-    [PunRPC]
-    public void Down()
-    {
-        transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
     }
 
     public void OnOwnershipRequest()
