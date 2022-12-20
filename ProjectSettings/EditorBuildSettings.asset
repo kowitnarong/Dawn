@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ConnectToServer.unity
+    path: Assets/Dawn/Levels/Scenes/ConnectToServer.unity
     guid: e321a10efaaa20b439425834ede94bc3
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
+    path: Assets/Dawn/Levels/Scenes/Lobby.unity
     guid: 3abf177cbb7d4f642a64edaa181d3c7a
   - enabled: 1
-    path: Assets/Scenes/Test.unity
+    path: Assets/Dawn/Levels/Scenes/Test.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 75c978a0d63b28142b5f83d6d5c5d6c0, type: 2}
