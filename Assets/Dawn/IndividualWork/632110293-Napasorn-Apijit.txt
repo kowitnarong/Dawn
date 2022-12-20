@@ -1,2 +1,2 @@
 Group: Dawn
-Role/Responsibility: Supporter
+Role/Responsibility: Support other roles in group
