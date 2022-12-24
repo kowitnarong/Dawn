@@ -3,45 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Player2ControllerWithPreset : PlayerController
+namespace GameDev4.Dawn
 {
-    [SerializeField] private PlayerInfo m_PlayerInfo;
-    private bool isOwner = false;
-
-    private void Awake()
+    public class Player2ControllerWithPreset : PlayerController
     {
-        m_PlayerInfo = GameObject.Find("--PunNetworkManager--").GetComponent<PlayerInfo>();
-    }
+        [SerializeField] private PlayerInfo m_PlayerInfo;
+        private bool isOwner = false;
 
-    private void Start()
-    {
-
-    }
-
-    public override void MoveUp()
-    {
-        if (m_PlayerInfo._isPlayer2 && isOwner == false)
+        private void Awake()
         {
-            OnOwnershipRequest();
-            isOwner = true;
+            m_PlayerInfo = GameObject.Find("--PunNetworkManager--").GetComponent<PlayerInfo>();
         }
 
-        if (m_PlayerInfo._isPlayer2)
+        private void Start()
         {
-            transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
-        }
-    }
 
-    public override void MoveDown()
-    {
-        if (m_PlayerInfo._isPlayer2)
+        }
+
+        public override void MoveUp()
         {
-            transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
-        }
-    }
+            if (m_PlayerInfo._isPlayer2 && isOwner == false)
+            {
+                OnOwnershipRequest();
+                isOwner = true;
+            }
 
-    public void OnOwnershipRequest()
-    {
-        GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
+            if (m_PlayerInfo._isPlayer2)
+            {
+                transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+            }
+        }
+
+        public override void MoveDown()
+        {
+            if (m_PlayerInfo._isPlayer2)
+            {
+                transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+            }
+        }
+
+        public void OnOwnershipRequest()
+        {
+            GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
+        }
     }
 }

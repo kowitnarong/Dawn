@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Player1ControllerWithPreset : PlayerController
+namespace GameDev4.Dawn
 {
-    [SerializeField] private PlayerInfo m_PlayerInfo;
-
-    private void Awake()
+    public class Player1ControllerWithPreset : PlayerController
     {
-        m_PlayerInfo = GameObject.Find("--PunNetworkManager--").GetComponent<PlayerInfo>();
-    }
+        [SerializeField] private PlayerInfo m_PlayerInfo;
 
-    public override void MoveUp()
-    {
-        if (m_PlayerInfo._isPlayer1)
+        private void Awake()
         {
-            transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+            m_PlayerInfo = GameObject.Find("--PunNetworkManager--").GetComponent<PlayerInfo>();
         }
-    }
 
-    public override void MoveDown()
-    {
-        if (m_PlayerInfo._isPlayer1)
+        public override void MoveUp()
         {
-            transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+            if (m_PlayerInfo._isPlayer1)
+            {
+                transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+            }
+        }
+
+        public override void MoveDown()
+        {
+            if (m_PlayerInfo._isPlayer1)
+            {
+                transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+            }
         }
     }
 }

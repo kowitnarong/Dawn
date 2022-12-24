@@ -5,26 +5,29 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Photon.Pun;
 
-public abstract class PlayerController : MonoBehaviourPunCallbacks, IPlayerController
+namespace GameDev4.Dawn
 {
-
-    [SerializeField] protected PlayerControllerSettingsPreset m_Preset;
-
-    protected virtual void Update()
+    public abstract class PlayerController : MonoBehaviourPunCallbacks, IPlayerController
     {
 
-        Keyboard keyboard = Keyboard.current;
+        [SerializeField] protected PlayerControllerSettingsPreset m_Preset;
 
-        if (keyboard[m_Preset._upKey].isPressed)
+        protected virtual void Update()
         {
-            MoveUp();
+
+            Keyboard keyboard = Keyboard.current;
+
+            if (keyboard[m_Preset._upKey].isPressed)
+            {
+                MoveUp();
+            }
+            else if (keyboard[m_Preset._downKey].isPressed)
+            {
+                MoveDown();
+            }
         }
-        else if (keyboard[m_Preset._downKey].isPressed)
-        {
-            MoveDown();
-        }
+
+        public abstract void MoveUp();
+        public abstract void MoveDown();
     }
-
-    public abstract void MoveUp();
-    public abstract void MoveDown();
 }

@@ -4,22 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PunRoomItem : MonoBehaviour
+namespace GameDev4.Dawn
 {
-    public TMP_Text roomName;
-    PunLobbyManager manager;
-
-    public void Start(){
-        manager = FindObjectOfType<PunLobbyManager>();
-    }
-
-    public void SetRoomName(string name)
+    public class PunRoomItem : MonoBehaviour
     {
-        roomName.text = name;
-    }
+        public TMP_Text roomName;
+        PunLobbyManager manager;
 
-    public void OnClickJoinRoom()
-    {
-        manager.JoinRoom(roomName.text);
+        public void Start()
+        {
+            manager = FindObjectOfType<PunLobbyManager>();
+        }
+
+        public void SetRoomName(string name)
+        {
+            roomName.text = name;
+        }
+
+        public void OnClickJoinRoom()
+        {
+            manager.JoinRoom(roomName.text);
+        }
     }
 }
