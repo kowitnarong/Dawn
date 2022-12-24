@@ -6,26 +6,29 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class PunConnectToServer : MonoBehaviourPunCallbacks
+namespace GameDev4.Dawn
 {
-    public TMP_InputField usernameInput;
-    public TextMeshProUGUI statusText;
-
-    public void OnClickConnect()
+    public class PunConnectToServer : MonoBehaviourPunCallbacks
     {
-        if (string.IsNullOrEmpty(usernameInput.text))
+        public TMP_InputField usernameInput;
+        public TextMeshProUGUI statusText;
+
+        public void OnClickConnect()
         {
-            return;
+            if (string.IsNullOrEmpty(usernameInput.text))
+            {
+                return;
+            }
+
+            PhotonNetwork.NickName = usernameInput.text;
+            statusText.text = "Connecting...";
+            PhotonNetwork.AutomaticallySyncScene = true;
+            PhotonNetwork.ConnectUsingSettings();
         }
 
-        PhotonNetwork.NickName = usernameInput.text;
-        statusText.text = "Connecting...";
-        PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.ConnectUsingSettings();
-    }
-
-    public override void OnConnectedToMaster()
-    {
-        SceneManager.LoadScene("Lobby");
+        public override void OnConnectedToMaster()
+        {
+            SceneManager.LoadScene("Lobby");
+        }
     }
 }

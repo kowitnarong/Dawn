@@ -6,157 +6,160 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
 
-public class PunLobbyManager : MonoBehaviourPunCallbacks
+namespace GameDev4.Dawn
 {
-
-    public TMP_InputField roomInputfield;
-    public GameObject lobbyPanel;
-    public GameObject roomPanel;
-    public TextMeshProUGUI roomName;
-
-    public PunRoomItem roomItemPrefab;
-    List<PunRoomItem> roomItemsList = new List<PunRoomItem>();
-    public Transform contentObject;
-
-    public float timeBetweenUpdates = 1.5f;
-    float nextUpdateTime;
-
-    public List<PunPlayerItem> playerItemsList = new List<PunPlayerItem>();
-    public PunPlayerItem playerItemPrefab;
-    public Transform playerItemParent;
-
-    public GameObject playButton;
-    public int playReadyCount = 0;
-
-    [SerializeField] private PlayerControllerSettingsPreset _player1;
-    [SerializeField] private PlayerControllerSettingsPreset _player2;
-
-    private void Start()
+    public class PunLobbyManager : MonoBehaviourPunCallbacks
     {
-        PhotonNetwork.JoinLobby();
-    }
-    public void OnClickCreate()
-    {
-        if (string.IsNullOrEmpty(roomInputfield.text))
+
+        public TMP_InputField roomInputfield;
+        public GameObject lobbyPanel;
+        public GameObject roomPanel;
+        public TextMeshProUGUI roomName;
+
+        public PunRoomItem roomItemPrefab;
+        List<PunRoomItem> roomItemsList = new List<PunRoomItem>();
+        public Transform contentObject;
+
+        public float timeBetweenUpdates = 1.5f;
+        float nextUpdateTime;
+
+        public List<PunPlayerItem> playerItemsList = new List<PunPlayerItem>();
+        public PunPlayerItem playerItemPrefab;
+        public Transform playerItemParent;
+
+        public GameObject playButton;
+        public int playReadyCount = 0;
+
+        [SerializeField] private PlayerControllerSettingsPreset _player1;
+        [SerializeField] private PlayerControllerSettingsPreset _player2;
+
+        private void Start()
         {
-            return;
+            PhotonNetwork.JoinLobby();
         }
-
-        PhotonNetwork.CreateRoom(roomInputfield.text, new RoomOptions { MaxPlayers = 2, BroadcastPropsChangeToAll = true });
-    }
-
-    public override void OnJoinedRoom()
-    {
-        lobbyPanel.SetActive(false);
-        roomPanel.SetActive(true);
-        roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
-        UpdatePlayerList();
-    }
-
-    public override void OnRoomListUpdate(List<RoomInfo> roomList)
-    {
-        if (Time.time > nextUpdateTime)
+        public void OnClickCreate()
         {
-            UpdateRoomList(roomList);
-            nextUpdateTime = Time.time + timeBetweenUpdates;
-        }
-    }
-
-    void UpdateRoomList(List<RoomInfo> list)
-    {
-        foreach (PunRoomItem item in roomItemsList)
-        {
-            Destroy(item.gameObject);
-        }
-        roomItemsList.Clear();
-
-        foreach (RoomInfo room in list)
-        {
-            PunRoomItem newRoom = Instantiate(roomItemPrefab, contentObject);
-            newRoom.SetRoomName(room.Name);
-            roomItemsList.Add(newRoom);
-        }
-    }
-
-    public void JoinRoom(string roomName)
-    {
-        PhotonNetwork.JoinRoom(roomName);
-    }
-
-    public void OnClickLeaveRoom()
-    {
-        PhotonNetwork.LeaveRoom();
-        playReadyCount = 0;
-    }
-
-    public override void OnLeftRoom()
-    {
-        lobbyPanel.SetActive(true);
-        roomPanel.SetActive(false);
-        playReadyCount = 0;
-        PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "Ready", false } });
-    }
-
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby();
-    }
-
-    void UpdatePlayerList()
-    {
-        foreach (PunPlayerItem item in playerItemsList)
-        {
-            Destroy(item.gameObject);
-        }
-        playerItemsList.Clear();
-
-        if (PhotonNetwork.CurrentRoom == null)
-        {
-            return;
-        }
-
-        foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
-        {
-            PunPlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
-            newPlayerItem.SetPlayerInfo(player.Value);
-
-            if (player.Value == PhotonNetwork.LocalPlayer)
+            if (string.IsNullOrEmpty(roomInputfield.text))
             {
-                newPlayerItem.ApplyLocalChanges();
+                return;
             }
 
-            playerItemsList.Add(newPlayerItem);
+            PhotonNetwork.CreateRoom(roomInputfield.text, new RoomOptions { MaxPlayers = 2, BroadcastPropsChangeToAll = true });
         }
-    }
 
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        UpdatePlayerList();
-        playReadyCount = 0;
-    }
-
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        UpdatePlayerList();
-        playReadyCount = 0;
-    }
-
-    private void Update()
-    {
-        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount > 1 && playReadyCount >= 2)
+        public override void OnJoinedRoom()
         {
-            playButton.SetActive(true);
+            lobbyPanel.SetActive(false);
+            roomPanel.SetActive(true);
+            roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
+            UpdatePlayerList();
         }
-        else
+
+        public override void OnRoomListUpdate(List<RoomInfo> roomList)
         {
-            playButton.SetActive(false);
+            if (Time.time > nextUpdateTime)
+            {
+                UpdateRoomList(roomList);
+                nextUpdateTime = Time.time + timeBetweenUpdates;
+            }
         }
+
+        void UpdateRoomList(List<RoomInfo> list)
+        {
+            foreach (PunRoomItem item in roomItemsList)
+            {
+                Destroy(item.gameObject);
+            }
+            roomItemsList.Clear();
+
+            foreach (RoomInfo room in list)
+            {
+                PunRoomItem newRoom = Instantiate(roomItemPrefab, contentObject);
+                newRoom.SetRoomName(room.Name);
+                roomItemsList.Add(newRoom);
+            }
+        }
+
+        public void JoinRoom(string roomName)
+        {
+            PhotonNetwork.JoinRoom(roomName);
+        }
+
+        public void OnClickLeaveRoom()
+        {
+            PhotonNetwork.LeaveRoom();
+            playReadyCount = 0;
+        }
+
+        public override void OnLeftRoom()
+        {
+            lobbyPanel.SetActive(true);
+            roomPanel.SetActive(false);
+            playReadyCount = 0;
+            PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "Ready", false } });
+        }
+
+        public override void OnConnectedToMaster()
+        {
+            PhotonNetwork.JoinLobby();
+        }
+
+        void UpdatePlayerList()
+        {
+            foreach (PunPlayerItem item in playerItemsList)
+            {
+                Destroy(item.gameObject);
+            }
+            playerItemsList.Clear();
+
+            if (PhotonNetwork.CurrentRoom == null)
+            {
+                return;
+            }
+
+            foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+            {
+                PunPlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
+                newPlayerItem.SetPlayerInfo(player.Value);
+
+                if (player.Value == PhotonNetwork.LocalPlayer)
+                {
+                    newPlayerItem.ApplyLocalChanges();
+                }
+
+                playerItemsList.Add(newPlayerItem);
+            }
+        }
+
+        public override void OnPlayerEnteredRoom(Player newPlayer)
+        {
+            UpdatePlayerList();
+            playReadyCount = 0;
+        }
+
+        public override void OnPlayerLeftRoom(Player otherPlayer)
+        {
+            UpdatePlayerList();
+            playReadyCount = 0;
+        }
+
+        private void Update()
+        {
+            if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount > 1 && playReadyCount >= 2)
+            {
+                playButton.SetActive(true);
+            }
+            else
+            {
+                playButton.SetActive(false);
+            }
+        }
+
+        public void OnClickStartGame()
+        {
+            PhotonNetwork.LoadLevel("Test");
+        }
+
+
     }
-
-    public void OnClickStartGame()
-    {
-        PhotonNetwork.LoadLevel("Test");
-    }
-
-
 }

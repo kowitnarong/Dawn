@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloorIgnoreLayer : MonoBehaviour
+namespace GameDev4.Dawn
 {
-    private Rigidbody rb;
-
-    void Start()
+    public class FloorIgnoreLayer : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody>();
-        Physics.IgnoreLayerCollision(0, 10);
+        private Rigidbody rb;
+
+        void Start()
+        {
+            rb = GetComponent<Rigidbody>();
+            Physics.IgnoreLayerCollision(9, 10);
+        }
     }
 }

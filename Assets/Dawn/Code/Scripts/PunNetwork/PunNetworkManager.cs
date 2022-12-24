@@ -5,13 +5,16 @@ using Photon.Realtime;
 using Cinemachine;
 using UnityEngine.InputSystem;
 
-public class PunNetworkManager : ConnectAndJoinRandom
+namespace GameDev4.Dawn
 {
-    public static PunNetworkManager singleton;
-    public InputActionAsset _inputActions;
-
-    private void Awake()
+    public class PunNetworkManager : ConnectAndJoinRandom
     {
-        singleton = this;
+        public static PunNetworkManager singleton;
+        public InputActionAsset _inputActions;
+
+        private void Awake()
+        {
+            singleton = this;
+        }
     }
 }
