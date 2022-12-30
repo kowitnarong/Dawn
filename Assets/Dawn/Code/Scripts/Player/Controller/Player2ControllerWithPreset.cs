@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Photon.Pun;
 
 namespace GameDev4.Dawn
@@ -8,6 +9,8 @@ namespace GameDev4.Dawn
     public class Player2ControllerWithPreset : PlayerController
     {
         [SerializeField] private PlayerInfo m_PlayerInfo;
+        [SerializeField] protected ActorTriggerHandler m_ActorTriggerHandler;
+        [SerializeField] private Key interactionKey;
         private bool isOwner = false;
 
         private void Awake()
@@ -15,9 +18,16 @@ namespace GameDev4.Dawn
             m_PlayerInfo = GameObject.Find("--PunNetworkManager--").GetComponent<PlayerInfo>();
         }
 
-        private void Start()
+        protected override void Update()
         {
+            base.Update();
 
+            Keyboard keyboard = Keyboard.current;
+
+            if (keyboard[interactionKey].wasPressedThisFrame)
+            {
+                PerformInteraction();
+            }
         }
 
         public override void MoveUp()
@@ -45,6 +55,16 @@ namespace GameDev4.Dawn
         public void OnOwnershipRequest()
         {
             GetComponent<PhotonView>().TransferOwnership(PhotonNetwork.LocalPlayer);
+        }
+
+        protected virtual void PerformInteraction()
+        {
+            var interactable = m_ActorTriggerHandler.GetInteractable();
+
+            if (interactable != null)
+            {
+                interactable.Interact(gameObject);
+            }
         }
     }
 }
