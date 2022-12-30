@@ -27,8 +27,9 @@ namespace GameDev4.Dawn
         public Key player2ChangeCharacterKeyLeft = Key.LeftArrow;
         public Key player2ChangeCharacterKeyRight = Key.RightArrow;
 
-        [SerializeField] private float charecterSelect = 1;
-        private float tempCharacterSelect = 1;
+        [SerializeField] private int charecterSelect = 1;
+        public int CharacterSelect { get { return charecterSelect; } }
+        private int tempCharacterSelect = 1;
 
         [Header("----------Character UI----------")]
         [SerializeField] private GameObject characterChangeUI;
@@ -167,7 +168,7 @@ namespace GameDev4.Dawn
         }
 
         [PunRPC]
-        private void UpdateCharacterSelect(float tempCharacterSelect)
+        private void UpdateCharacterSelect(int tempCharacterSelect)
         {
             charecterSelect = tempCharacterSelect;
             CharacterSelectAnimation();
