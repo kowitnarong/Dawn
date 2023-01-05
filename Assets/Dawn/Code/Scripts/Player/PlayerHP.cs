@@ -11,13 +11,12 @@ namespace GameDev4.Dawn
         public int maxHP = 4;
         public int currentHP;
 
-        private TextMeshProUGUI hpText;
+        [SerializeField] private TextMeshProUGUI hpText;
 
         private void Start()
         {
             currentHP = maxHP;
-            hpText = GetComponentInChildren<TextMeshProUGUI>();
-            hpText.text = currentHP.ToString();
+            hpText.text = "HP: " + currentHP.ToString();
         }
 
         public void TakeDamage(int damage)
@@ -33,7 +32,7 @@ namespace GameDev4.Dawn
         public void UpdateHP(int newHP)
         {
             currentHP = newHP;
-            hpText.text = currentHP.ToString();
+            hpText.text = "HP: " + currentHP.ToString();
         }
     }
 }

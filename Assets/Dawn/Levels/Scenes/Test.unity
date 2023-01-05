@@ -881,8 +881,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Preset: {fileID: 11400000, guid: 94ce8f2636864cb48ab00da56c33beb5, type: 2}
   m_PlayerInfo: {fileID: 1251800129}
-  m_ActorTriggerHandler: {fileID: 0}
-  interactionKey: 0
+  m_ActorTriggerHandler: {fileID: 1466858017}
+  interactionKey: 19
 --- !u!1 &375678852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,8 +1209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Preset: {fileID: 11400000, guid: 170677dab10b0f64d8c5064192a0c164, type: 2}
   m_PlayerInfo: {fileID: 1251800129}
-  m_ActorTriggerHandler: {fileID: 0}
-  interactionKey: 0
+  m_ActorTriggerHandler: {fileID: 1466858017}
+  interactionKey: 56
 --- !u!114 &458147998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2575,7 +2575,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466858015}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3457,6 +3457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 4
   currentHP: 0
+  hpText: {fileID: 142105489}
 --- !u!114 &1943926420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3469,6 +3470,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f1ff8d0d3b56140bd814a41ddcd8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAbilityFire: {fileID: 11400000, guid: cba8798ea4070164a9c9017c9b49e1d0, type: 2}
+  playerAbilityWater: {fileID: 11400000, guid: 3ac5e7ef0c14d884f9350480f0b98b13, type: 2}
+  playerAbilityCold: {fileID: 11400000, guid: c850f41a005f61e46964bf68e808de59, type: 2}
 --- !u!1 &1979752157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3800,6 +3804,9 @@ GameObject:
   - component: {fileID: 2062696937}
   - component: {fileID: 2062696941}
   - component: {fileID: 2062696940}
+  - component: {fileID: 2062696944}
+  - component: {fileID: 2062696943}
+  - component: {fileID: 2062696942}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -3815,7 +3822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062696935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3830,7 +3837,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062696935}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3911,6 +3918,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ObstacleType: 0
+--- !u!114 &2062696942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062696935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efb09a4dd6fa5b4b83b4a66add493d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2062696943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062696935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &2062696944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062696935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2062696943}
+  sceneViewId: 4
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2081441476
 GameObject:
   m_ObjectHideFlags: 0
