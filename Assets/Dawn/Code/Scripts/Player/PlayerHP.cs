@@ -7,33 +7,32 @@ using TMPro;
 namespace GameDev4.Dawn
 {
     public class PlayerHP : MonoBehaviourPun
-{
-    public int maxHP = 4;
-    public int currentHP;
-
-    private TextMeshProUGUI hpText;
-
-    private void Start()
     {
-        currentHP = maxHP;
-        hpText = GetComponentInChildren<TextMeshProUGUI>();
-        hpText.text = currentHP.ToString();
-    }
+        public int maxHP = 4;
+        public int currentHP;
 
-    public void TakeDamage(int damage)
-    {
-        if(PhotonNetwork.IsMasterClient)
+        [SerializeField] private TextMeshProUGUI hpText;
+
+        private void Start()
         {
-            currentHP -= damage;
-            photonView.RPC("UpdateHP", RpcTarget.All, currentHP);
+            currentHP = maxHP;
+            hpText.text = "HP: " + currentHP.ToString();
+        }
+
+        public void TakeDamage(int damage)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                currentHP -= damage;
+                photonView.RPC("UpdateHP", RpcTarget.All, currentHP);
+            }
+        }
+
+        [PunRPC]
+        public void UpdateHP(int newHP)
+        {
+            currentHP = newHP;
+            hpText.text = "HP: " + currentHP.ToString();
         }
     }
-
-    [PunRPC]
-    public void UpdateHP(int newHP)
-    {
-        currentHP = newHP;
-        hpText.text = currentHP.ToString();
-    }
-}
 }
