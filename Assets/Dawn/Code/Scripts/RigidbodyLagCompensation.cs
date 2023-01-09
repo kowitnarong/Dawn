@@ -23,8 +23,8 @@ namespace GameDev4.Dawn
 
         private void Awake()
         {
-            PhotonNetwork.SendRate = 120;
-            PhotonNetwork.SerializationRate = 80;
+            PhotonNetwork.SendRate = 100;
+            PhotonNetwork.SerializationRate = 30;
 
             _rigidbody = gameObject.GetComponent<Rigidbody>();
         }
