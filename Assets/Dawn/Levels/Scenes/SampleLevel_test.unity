@@ -590,7 +590,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-133624
+  m_Name: pb_Mesh26016
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -889,7 +889,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-201980
+  m_Name: pb_Mesh26054
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2217,7 +2217,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-173764
+  m_Name: pb_Mesh26166
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2381,7 +2381,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-29916
+  m_Name: pb_Mesh26396
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3736,7 +3736,6 @@ GameObject:
   - component: {fileID: 542770983}
   - component: {fileID: 542770986}
   - component: {fileID: 542770985}
-  - component: {fileID: 542770984}
   m_Layer: 0
   m_Name: Obstacle-enemy (3)
   m_TagString: Untagged
@@ -3759,20 +3758,6 @@ Transform:
   m_Father: {fileID: 1458323727}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!136 &542770984
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542770982}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &542770985
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4375,7 +4360,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-124958
+  m_Name: pb_Mesh26416
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4621,7 +4606,6 @@ GameObject:
   - component: {fileID: 787527045}
   - component: {fileID: 787527048}
   - component: {fileID: 787527047}
-  - component: {fileID: 787527046}
   m_Layer: 0
   m_Name: Obstacle-enemy (2)
   m_TagString: Untagged
@@ -4644,20 +4628,6 @@ Transform:
   m_Father: {fileID: 1458323727}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!136 &787527046
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787527044}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &787527047
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5134,7 +5104,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-121756
+  m_Name: pb_Mesh26266
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5417,7 +5387,6 @@ GameObject:
   - component: {fileID: 1077081164}
   - component: {fileID: 1077081167}
   - component: {fileID: 1077081166}
-  - component: {fileID: 1077081165}
   m_Layer: 0
   m_Name: Obstacle-enemy
   m_TagString: Untagged
@@ -5440,20 +5409,6 @@ Transform:
   m_Father: {fileID: 1458323727}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!136 &1077081165
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077081163}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1077081166
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5515,7 +5470,6 @@ GameObject:
   - component: {fileID: 1090739054}
   - component: {fileID: 1090739057}
   - component: {fileID: 1090739056}
-  - component: {fileID: 1090739055}
   m_Layer: 0
   m_Name: Obstacle-thorn (1)
   m_TagString: Untagged
@@ -5538,19 +5492,6 @@ Transform:
   m_Father: {fileID: 1458323727}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1090739055
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090739053}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1090739056
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6054,7 +5995,6 @@ GameObject:
   - component: {fileID: 1210605327}
   - component: {fileID: 1210605326}
   - component: {fileID: 1210605325}
-  - component: {fileID: 1210605324}
   m_Layer: 0
   m_Name: Bg-RainZone
   m_TagString: Untagged
@@ -6077,20 +6017,6 @@ Transform:
   m_Father: {fileID: 829589696}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1210605324
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210605322}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 963105157}
 --- !u!33 &1210605325
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -6624,7 +6550,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-150118
+  m_Name: pb_Mesh25950
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7167,7 +7093,6 @@ GameObject:
   - component: {fileID: 1435724764}
   - component: {fileID: 1435724767}
   - component: {fileID: 1435724766}
-  - component: {fileID: 1435724765}
   m_Layer: 0
   m_Name: Obstacle-thorn
   m_TagString: Untagged
@@ -7190,19 +7115,6 @@ Transform:
   m_Father: {fileID: 1458323727}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1435724765
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435724763}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1435724766
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7394,7 +7306,6 @@ GameObject:
   - component: {fileID: 1517961871}
   - component: {fileID: 1517961874}
   - component: {fileID: 1517961873}
-  - component: {fileID: 1517961872}
   m_Layer: 0
   m_Name: Obstacle-enemy (1)
   m_TagString: Untagged
@@ -7417,20 +7328,6 @@ Transform:
   m_Father: {fileID: 1458323727}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!136 &1517961872
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517961870}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1517961873
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7823,7 +7720,6 @@ GameObject:
   - component: {fileID: 1602877008}
   - component: {fileID: 1602877007}
   - component: {fileID: 1602877006}
-  - component: {fileID: 1602877005}
   m_Layer: 0
   m_Name: Bg-SummerZone
   m_TagString: Untagged
@@ -7831,20 +7727,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1602877005
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602877004}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 369327512}
 --- !u!33 &1602877006
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -8238,7 +8120,6 @@ GameObject:
   - component: {fileID: 1673656718}
   - component: {fileID: 1673656717}
   - component: {fileID: 1673656716}
-  - component: {fileID: 1673656715}
   m_Layer: 0
   m_Name: Bg-WinterZone
   m_TagString: Untagged
@@ -8261,20 +8142,6 @@ Transform:
   m_Father: {fileID: 829589696}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1673656715
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673656713}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 709378049}
 --- !u!33 &1673656716
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -8580,7 +8447,6 @@ GameObject:
   - component: {fileID: 1679076404}
   - component: {fileID: 1679076407}
   - component: {fileID: 1679076406}
-  - component: {fileID: 1679076405}
   m_Layer: 0
   m_Name: Nest-WinPoint
   m_TagString: Untagged
@@ -8603,19 +8469,6 @@ Transform:
   m_Father: {fileID: 829589696}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1679076405
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679076403}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1679076406
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9402,7 +9255,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-227034
+  m_Name: pb_Mesh25918
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9775,7 +9628,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-226548
+  m_Name: pb_Mesh26452
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10799,7 +10652,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-210570
+  m_Name: pb_Mesh26554
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11288,7 +11141,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-205968
+  m_Name: pb_Mesh26384
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
