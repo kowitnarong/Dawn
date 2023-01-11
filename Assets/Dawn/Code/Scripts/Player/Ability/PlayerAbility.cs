@@ -7,10 +7,16 @@ namespace GameDev4.Dawn
 {
     public class PlayerAbility : MonoBehaviour
     {
+        [Header("Current Ability")]
+        public playerAbility m_playerAbility = playerAbility.summer;
+        public enum playerAbility {summer, rain, winter} 
+
         private ChangeCharacter changeCharacter;
-        [SerializeField] private PlayerAbilityPreset playerAbilityFire;
-        [SerializeField] private PlayerAbilityPreset playerAbilityWater;
-        [SerializeField] private PlayerAbilityPreset playerAbilityCold;
+        [Header("Setting Preset")]
+        [SerializeField] private PlayerAbilityPreset playerAbilitySummer;
+        [SerializeField] private PlayerAbilityPreset playerAbilityRain;
+        [SerializeField] private PlayerAbilityPreset playerAbilityWinter;
+
 
         private void Start()
         {
@@ -28,13 +34,16 @@ namespace GameDev4.Dawn
             switch (characterSelect)
             {
                 case 1:
-                    m_material.color = playerAbilityFire.color;
+                    m_material.color = playerAbilitySummer.color;
+                    m_playerAbility = playerAbility.summer;
                     break;
                 case 2:
-                    m_material.color = playerAbilityWater.color;
+                    m_material.color = playerAbilityRain.color;
+                    m_playerAbility = playerAbility.rain;
                     break;
                 case 3:
-                    m_material.color = playerAbilityCold.color;
+                    m_material.color = playerAbilityWinter.color;
+                    m_playerAbility = playerAbility.winter;
                     break;
             }
         }
