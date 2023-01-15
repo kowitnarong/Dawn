@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Dawn/Levels/Scenes/MenuScene.unity
+    guid: 9357fd3dbf881ef40b7ef1f9148d2194
+  - enabled: 1
+    path: Assets/Dawn/Levels/Scenes/SettingScene.unity
+    guid: 436cc95aac696104eb872a163ced66b2
+  - enabled: 1
     path: Assets/Dawn/Levels/Scenes/ConnectToServer.unity
     guid: e321a10efaaa20b439425834ede94bc3
   - enabled: 1
