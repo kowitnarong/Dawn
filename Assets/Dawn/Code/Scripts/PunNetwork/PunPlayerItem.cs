@@ -12,12 +12,22 @@ namespace GameDev4.Dawn
     {
         public TextMeshProUGUI playerName;
 
-        public Color highlightColor;
+        //public Color highlightColor;
         public GameObject leftArrowButton;
         public GameObject rightArrowButton;
         public GameObject readyButton;
+        public GameObject kickButton;
         public TextMeshProUGUI playerReady;
 
+        public Image playerBGImage;
+
+        public Sprite playerReadyImage;
+        public Sprite playerNotReadyImage;
+
+        public Image playerAvatar;
+        public Sprite[] avatars;
+        private int indexAvatar;
+        private bool isKick = false;
 
         ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
 
@@ -25,7 +35,9 @@ namespace GameDev4.Dawn
 
         private void Start()
         {
-
+            indexAvatar = ToggleUICharacterSelect.index;
+            playerProperties["playerAvatar"] = indexAvatar;
+            PhotonNetwork.SetPlayerCustomProperties(playerProperties);
         }
 
         public void SetPlayerInfo(Player _player)
@@ -40,7 +52,6 @@ namespace GameDev4.Dawn
             readyButton.SetActive(true);
             readyButton.GetComponent<Button>().interactable = true;
             playerProperties["Ready"] = false;
-            player.SetCustomProperties(playerProperties);
         }
 
         public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
@@ -55,30 +66,141 @@ namespace GameDev4.Dawn
         {
             readyButton.GetComponent<Button>().interactable = false;
             playerProperties["Ready"] = true;
+            Debug.Log("Player is ready");
             player.SetCustomProperties(playerProperties);
         }
 
         void UpdatePlayerItem(Player player)
         {
+            if (player.CustomProperties.ContainsKey("playerAvatar"))
+            {
+                //Debug.Log((int)player.CustomProperties["playerAvatar"]);
+                playerAvatar.sprite = avatars[(int)player.CustomProperties["playerAvatar"]];
+                playerAvatar.color = new Color(255, 255, 255, 255);
+                playerProperties["playerAvatar"] = player.CustomProperties["playerAvatar"];
+            }
+
             if (player.CustomProperties.ContainsKey("Ready"))
             {
                 if ((bool)player.CustomProperties["Ready"])
                 {
-                    playerReady.text = "Ready!";
-                    playerName.color = highlightColor;
+
+                    playerBGImage.sprite = playerReadyImage;
+                    readyButton.SetActive(false);
                     GameObject.Find("LobbyManager").GetComponent<PunLobbyManager>().playReadyCount++;
                 }
                 else
                 {
-                    playerReady.text = "Not Ready!";
-                    playerName.color = Color.white;
+                    playerBGImage.sprite = playerNotReadyImage;
                 }
             }
             else
             {
-                playerReady.text = "Not Ready!";
-                playerName.color = Color.white;
+                playerBGImage.sprite = playerNotReadyImage;
             }
         }
+
+        /*private void Start()
+        {
+            indexAvatar = ToggleUICharacterSelect.index;
+            playerProperties["playerAvatar"] = indexAvatar;
+            playerProperties["isKick"] = isKick;
+            PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+        }
+
+        public void SetPlayerInfo(Player _player)
+        {
+            playerName.text = _player.NickName;
+            player = _player;
+            UpdatePlayerItem(player);
+        }
+
+        public void ApplyLocalChanges()
+        {
+            readyButton.SetActive(true);
+            readyButton.GetComponent<Button>().interactable = true;
+            playerProperties["Ready"] = false;
+        }
+
+        public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+        {
+            if (player == targetPlayer)
+            {
+                UpdatePlayerItem(targetPlayer);
+            }
+        }
+
+        public void OnClickReady()
+        {
+            readyButton.GetComponent<Button>().interactable = false;
+            playerProperties["Ready"] = true;
+            Debug.Log("Player is ready");
+            player.SetCustomProperties(playerProperties);
+        }
+
+        public void OnKick()
+        {
+            string nickname = playerName.text;
+            Kick(nickname);
+        }*/
+
+        /*void UpdatePlayerItem(Player player)
+        {
+            if (player.CustomProperties.ContainsKey("playerAvatar"))
+            {
+                //Debug.Log((int)player.CustomProperties["playerAvatar"]);
+                playerAvatar.sprite = avatars[(int)player.CustomProperties["playerAvatar"]];
+                playerAvatar.color = new Color(255, 255, 255, 255);
+                playerProperties["playerAvatar"] = player.CustomProperties["playerAvatar"];
+            }
+            if (player.CustomProperties.ContainsKey("isKick"))
+            {
+                if ((bool)player.CustomProperties["isKick"])
+                {
+                    if (GameObject.Find("LobbyManager").GetComponent<PunLobbyManager>().isHost)
+                    {
+                        if (readyButton.activeSelf == false)
+                        { kickButton.SetActive(true); }
+                    }
+                }
+            }
+
+            if (player.CustomProperties.ContainsKey("Ready"))
+            {
+                if ((bool)player.CustomProperties["Ready"])
+                {
+
+                    playerBGImage.sprite = playerReadyImage;
+                    readyButton.SetActive(false);
+                    GameObject.Find("LobbyManager").GetComponent<PunLobbyManager>().playReadyCount++;
+                }
+                else
+                {
+                    if (GameObject.Find("LobbyManager").GetComponent<PunLobbyManager>().isHost)
+                    {
+                        playerProperties["isKick"] = false;
+                    }
+                    else
+                    {
+                        playerProperties["isKick"] = true;
+                        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+                    }
+                    playerBGImage.sprite = playerNotReadyImage;
+                }
+            }
+            else
+            {
+                if (GameObject.Find("LobbyManager").GetComponent<PunLobbyManager>().isHost)
+                {
+                    playerProperties["isKick"] = false;
+                }
+                else
+                {
+                    playerProperties["isKick"] = true;
+                    PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+                }
+                playerBGImage.sprite = playerNotReadyImage;
+            }
+        }*/
     }
 }

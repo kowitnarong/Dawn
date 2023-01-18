@@ -173,7 +173,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1092
         y: 526
-        width: 152
+        width: 142
         height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: 3_Regis_4
       rect:
         serializedVersion: 2
-        x: 694
-        y: 280
-        width: 561
-        height: 188
+        x: 1325
+        y: 516
+        width: 148
+        height: 154
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,7 +210,70 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3_Regis_23
+      name: 3_Regis_5
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 514
+        width: 150
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5fe9276e4e7259438e0fc8f25fde0b7
+      internalID: -1069569859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Regis_6
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 519
+        width: 142
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729def74ecd710640b4ad82ef3eec666
+      internalID: -637935705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Regis_7
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 280
+        width: 561
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8268de3f7de0d314da2a8be6e51fe109
+      internalID: 1766030329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Regis_26
       rect:
         serializedVersion: 2
         x: 737
@@ -224,14 +287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 255354cdc8ce019408bf249756350c55
-      internalID: -370500493
+      spriteID: 1ad610608045f6745b70f2d1729533c0
+      internalID: -1768272541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3_Regis_24
+      name: 3_Regis_27
       rect:
         serializedVersion: 2
         x: 987
@@ -245,29 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed97128a3b53b7a4baf7c80dd9b79b1f
-      internalID: 111660047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3_Regis_5
-      rect:
-        serializedVersion: 2
-        x: 818
-        y: 214
-        width: 312
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5fe9276e4e7259438e0fc8f25fde0b7
-      internalID: -1069569859
+      spriteID: b883dcd7569bdbc47a49b03d24e2c353
+      internalID: -1450510013
       vertices: []
       indices: 
       edges: []
@@ -296,17 +338,21 @@ TextureImporter:
       3_Regis_3: -1885620412
       3_Regis_18: -508342127
       3_Regis_20: -1636856753
+      3_Regis_26: -1768272541
       3_Regis_12: -43448931
       3_Regis_24: 111660047
       3_Regis_6: -637935705
+      3_Regis_25: 1277104319
       3_Regis_2: 1693306586
       3_Regis_4: 1577960093
       3_Regis_19: 1155658416
       3_Regis_0: -1419478994
       3_Regis_8: 391175752
+      3_Regis_27: -1450510013
       3_Regis_11: -1105241536
       3_Regis_14: 596477625
       3_Regis_9: 1781779250
+      3_Regis_28: -1514417470
       3_Regis_23: -370500493
   spritePackingTag: 
   pSDRemoveMatte: 0
