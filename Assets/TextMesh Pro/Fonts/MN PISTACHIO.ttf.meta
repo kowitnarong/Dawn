@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0f1b0ef7350c05043898fe6c131fb15f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - MN PISTACHIO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 30efbd7e7a16f25408c560d918b7f540, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

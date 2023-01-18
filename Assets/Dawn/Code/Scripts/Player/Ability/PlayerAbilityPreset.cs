@@ -7,8 +7,9 @@ namespace GameDev4.Dawn
     [CreateAssetMenu(fileName = "PlayerAbilityPreset", menuName = "GameDev4/PlayerAbillty", order = 0)]
     public class PlayerAbilityPreset : ScriptableObject
     {
-        [Header("Color")]
-        public Color color;
+        [Header("Texture")]
+        public Material material;
+        public Mesh mesh;
     }
 }
 

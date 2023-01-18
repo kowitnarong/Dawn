@@ -9,7 +9,11 @@ namespace GameDev4.Dawn
     {
         [Header("Current Ability")]
         public playerAbility m_playerAbility = playerAbility.summer;
-        public enum playerAbility {summer, rain, winter} 
+        public enum playerAbility { summer, rain, winter }
+
+        [SerializeField] private GameObject textureObject;
+        private Renderer m_material;
+        private MeshFilter m_meshFilter;
 
         private ChangeCharacter changeCharacter;
         [Header("Setting Preset")]
@@ -20,6 +24,8 @@ namespace GameDev4.Dawn
 
         private void Start()
         {
+            m_material = textureObject.GetComponent<Renderer>();
+            m_meshFilter = textureObject.GetComponent<MeshFilter>();
             changeCharacter = GetComponent<ChangeCharacter>();
         }
 
@@ -30,19 +36,21 @@ namespace GameDev4.Dawn
 
         private void UpdateAbility(int characterSelect)
         {
-            Material m_material = GetComponent<Renderer>().material;
             switch (characterSelect)
             {
                 case 1:
-                    m_material.color = playerAbilitySummer.color;
+                    m_meshFilter.mesh = playerAbilitySummer.mesh;
+                    m_material.sharedMaterial = playerAbilitySummer.material;
                     m_playerAbility = playerAbility.summer;
                     break;
                 case 2:
-                    m_material.color = playerAbilityRain.color;
+                    m_meshFilter.mesh = playerAbilityRain.mesh;
+                    m_material.sharedMaterial = playerAbilityRain.material;
                     m_playerAbility = playerAbility.rain;
                     break;
                 case 3:
-                    m_material.color = playerAbilityWinter.color;
+                    m_meshFilter.mesh = playerAbilityWinter.mesh;
+                    m_material.sharedMaterial = playerAbilityWinter.material;
                     m_playerAbility = playerAbility.winter;
                     break;
             }
