@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff7c3355613e004dbc25ff39b3df1c9, type: 3}
   m_Name: PlayerAbilityRain
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0.27296638, b: 1, a: 1}
+  material: {fileID: 2100000, guid: c4ea0ed129b57f346b783254fafcd4e6, type: 2}
+  mesh: {fileID: 4300000, guid: 5731748b6d29ca14d9b35984e9c9f8f3, type: 2}
