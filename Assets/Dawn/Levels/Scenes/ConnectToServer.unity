@@ -818,7 +818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter text...
+  m_text: Enter name...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3e690b0d7ad8254b9d8ffa177c2e203, type: 2}
   m_sharedMaterial: {fileID: -2064773730489952032, guid: f3e690b0d7ad8254b9d8ffa177c2e203, type: 2}
@@ -845,8 +845,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38
-  m_fontSizeBase: 38
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

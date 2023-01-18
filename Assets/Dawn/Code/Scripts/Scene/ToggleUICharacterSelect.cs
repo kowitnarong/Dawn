@@ -12,7 +12,7 @@ namespace GameDev4.Dawn
         public Button connectButton;
         public TMP_InputField characterName;
 
-        [SerializeField] private int index = 0;
+        public static int index = 0;
         [SerializeField] protected bool isSelected = true;
 
 
