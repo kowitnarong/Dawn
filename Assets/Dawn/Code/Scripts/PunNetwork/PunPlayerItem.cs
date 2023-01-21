@@ -27,7 +27,6 @@ namespace GameDev4.Dawn
         public Image playerAvatar;
         public Sprite[] avatars;
         private int indexAvatar;
-        private bool isKick = false;
 
         ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
 
