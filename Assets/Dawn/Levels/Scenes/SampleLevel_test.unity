@@ -166,9 +166,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12960232}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -494,9 +494,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128217126}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -608,9 +608,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136030540}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1215,9 +1215,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251296961}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1822,9 +1822,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331532836}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2101,7 +2101,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30266
+  m_Name: pb_Mesh31828
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2265,7 +2265,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30516
+  m_Name: pb_Mesh30538
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2466,9 +2466,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375678852}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3537,6 +3537,83 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &500503760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 500503761}
+  - component: {fileID: 500503762}
+  - component: {fileID: 500503764}
+  - component: {fileID: 500503763}
+  m_Layer: 0
+  m_Name: SummerZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &500503761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500503760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2045651575}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &500503762
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500503760}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.011677, y: 55.301537, z: 5.398136}
+  m_Center: {x: -0.028316498, y: 15.067181, z: 1.3477598}
+--- !u!114 &500503763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500503760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727dad70d8634bf4bbcd47825c1caa40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1943926413}
+  _playerAbility: {fileID: 1943926420}
+  currentAbility: 
+  defaultSpeed: 0.4
+  speedWhenDeduct: 2
+--- !u!114 &500503764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500503760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc7bbd04783ff449b20ec854d52a511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ZoneType: 0
 --- !u!1 &506738578
 GameObject:
   m_ObjectHideFlags: 0
@@ -3572,6 +3649,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &525368619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525368620}
+  - component: {fileID: 525368621}
+  - component: {fileID: 525368623}
+  - component: {fileID: 525368622}
+  m_Layer: 0
+  m_Name: RainZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &525368620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525368619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 45.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2045651575}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &525368621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525368619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.011677, y: 34.317776, z: 5.398136}
+  m_Center: {x: -0.028316498, y: 14.584795, z: 1.3477597}
+--- !u!114 &525368622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525368619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac347578129c6149ae153d7cfdb2356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1943926413}
+  _playerAbility: {fileID: 1943926420}
+  currentAbility: 
+  defaultSpeed: 0.4
+  speedWhenDeduct: 2
+--- !u!114 &525368623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525368619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc7bbd04783ff449b20ec854d52a511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ZoneType: 1
 --- !u!1 &536845008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3615,9 +3769,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536845008}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3888,9 +4042,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547235447}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4002,9 +4156,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647501410}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4116,9 +4270,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654075406}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4342,7 +4496,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30534
+  m_Name: pb_Mesh32096
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5085,7 +5239,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30380
+  m_Name: pb_Mesh31942
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5421,9 +5575,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039579020}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5778,9 +5932,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119805850}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5925,9 +6079,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152117654}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -6485,9 +6639,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235716820}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -6745,9 +6899,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274261415}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -6822,7 +6976,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30126
+  m_Name: pb_Mesh31688
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7118,9 +7272,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333978604}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -7232,9 +7386,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363289140}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -7373,7 +7527,7 @@ GameObject:
   - component: {fileID: 1466858017}
   m_Layer: 0
   m_Name: Interaction Trigger
-  m_TagString: Untagged
+  m_TagString: Interaction Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7536,6 +7690,83 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517961870}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1553183603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1553183604}
+  - component: {fileID: 1553183605}
+  - component: {fileID: 1553183607}
+  - component: {fileID: 1553183606}
+  m_Layer: 0
+  m_Name: WinterZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1553183604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553183603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 92.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2045651575}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1553183605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553183603}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.011677, y: 59.387527, z: 5.398136}
+  m_Center: {x: -0.028316498, y: 15.343254, z: 1.3477597}
+--- !u!114 &1553183606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553183603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f532ae582d84b241a0b2c40770fa21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1943926413}
+  _playerAbility: {fileID: 1943926420}
+  currentAbility: 
+  defaultSpeed: 0.4
+  speedWhenDeduct: 2
+--- !u!114 &1553183607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553183603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc7bbd04783ff449b20ec854d52a511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ZoneType: 2
 --- !u!1 &1568665496
 GameObject:
   m_ObjectHideFlags: 0
@@ -8335,7 +8566,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30034
+  m_Name: pb_Mesh31596
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9019,9 +9250,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692466099}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -9703,9 +9934,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808132836}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -9847,7 +10078,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30010
+  m_Name: pb_Mesh31572
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10048,9 +10279,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881757740}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -10355,7 +10586,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30572
+  m_Name: pb_Mesh32134
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10576,7 +10807,7 @@ Rigidbody:
   m_GameObject: {fileID: 1943926408}
   serializedVersion: 2
   m_Mass: 10
-  m_Drag: 0.5
+  m_Drag: 0.4
   m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -10641,12 +10872,13 @@ MonoBehaviour:
   player1ChangeCharacterKeyRight: 18
   player2ChangeCharacterKeyLeft: 61
   player2ChangeCharacterKeyRight: 62
-  charecterSelect: 1
+  characterSelect: 1
   characterChangeUI: {fileID: 1105330030}
   characterImages:
   - {fileID: 904098050}
   - {fileID: 398614353}
   - {fileID: 538099133}
+  coinCount: {fileID: 1943926421}
 --- !u!114 &1943926419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10842,9 +11074,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979752157}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -11369,6 +11601,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b765794af722052489e4937fc8092c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2045651574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045651575}
+  m_Layer: 0
+  m_Name: --->TriggerWeatherZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2045651575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045651574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 500503761}
+  - {fileID: 525368620}
+  - {fileID: 1553183604}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &2049778856
 Mesh:
   m_ObjectHideFlags: 0
@@ -11787,9 +12053,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089990216}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.1
+  m_Drag: 10
+  m_AngularDrag: 0.2
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0

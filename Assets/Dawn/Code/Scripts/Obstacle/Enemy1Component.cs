@@ -1,17 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
     public class Enemy1Component : MonoBehaviour, IInteractable, IActorEnterExitHandler
     {
         [SerializeField] private PlayerHP playerHP;
-
-        private void Start()
-        {
-
-        }
+        protected bool isDestroyed = false;
 
         public void Interact(GameObject actor)
         {
@@ -27,15 +24,28 @@ namespace GameDev4.Dawn
                 {
                     case ObstacleType.hpMinus1:
                         playerHP.TakeDamage(1);
+                        isDestroyed = true;
                         break;
                 }
             }
-            Destroy(this.gameObject, 0);
+
+            DestroyObject();
         }
 
         public void ActorExit(GameObject actor)
         {
 
+        }
+
+        public void DestroyObject()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                if (isDestroyed)
+                {
+                    PhotonNetwork.Destroy(this.gameObject);
+                }
+            }
         }
     }
 }

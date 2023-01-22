@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
     public class CoinComponent : MonoBehaviour, IInteractable, IActorEnterExitHandler
     {
         [SerializeField] private CoinCount coinCount;
+        protected bool isDestroyed = false;
 
         private void Start()
         {
@@ -27,15 +29,27 @@ namespace GameDev4.Dawn
                 {
                     case ItemType.CoinPlus:
                         coinCount.AddCoin(1);
+                        isDestroyed = true;
                         break;
                 }
             }
-            Destroy(this.gameObject, 0);
+            DestroyObject();
         }
 
         public void ActorExit(GameObject actor)
         {
 
+        }
+
+        public void DestroyObject()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                if (isDestroyed)
+                {
+                    PhotonNetwork.Destroy(this.gameObject);
+                }
+            }
         }
     }
 }
