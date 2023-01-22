@@ -12,7 +12,8 @@ namespace GameDev4.Dawn
 
         [SerializeField] private TextMeshProUGUI coinText;
 
-        private void Start(){
+        private void Start()
+        {
             coinText.text = "Coin: " + currentCoin.ToString();
         }
 
@@ -21,6 +22,15 @@ namespace GameDev4.Dawn
             if (PhotonNetwork.IsMasterClient)
             {
                 currentCoin += coin;
+                photonView.RPC("UpdateCoinAll", RpcTarget.All, currentCoin);
+            }
+        }
+
+        public void UseCoin(int coin)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                currentCoin -= coin;
                 photonView.RPC("UpdateCoinAll", RpcTarget.All, currentCoin);
             }
         }
