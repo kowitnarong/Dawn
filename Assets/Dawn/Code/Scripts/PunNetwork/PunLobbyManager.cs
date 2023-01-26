@@ -55,7 +55,7 @@ namespace GameDev4.Dawn
         {
             lobbyPanel.SetActive(false);
             roomPanel.SetActive(true);
-            roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
+            roomName.text = "Room: " + PhotonNetwork.CurrentRoom.Name + "'s";
             UpdatePlayerList();
         }
 

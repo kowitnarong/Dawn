@@ -28,11 +28,8 @@ namespace GameDev4.Dawn
 
         public void UseCoin(int coin)
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                currentCoin -= coin;
-                photonView.RPC("UpdateCoinAll", RpcTarget.All, currentCoin);
-            }
+            currentCoin -= coin;
+            photonView.RPC("UpdateCoinAll", RpcTarget.All, currentCoin);
         }
 
         [PunRPC]

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameDev4.Dawn
 {
-    public class Enemy1Behavior : MonoBehaviour
+    public class SunMonsterBehavior : MonoBehaviour
     {
         private Transform target;
         private float distance = 3f;
