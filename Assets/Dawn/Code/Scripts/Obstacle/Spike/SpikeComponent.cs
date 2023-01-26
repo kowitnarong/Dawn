@@ -5,7 +5,7 @@ using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
-    public class Enemy1Component : MonoBehaviour, IInteractable, IActorEnterExitHandler
+    public class SpikeComponent : MonoBehaviour, IInteractable, IActorEnterExitHandler
     {
         [SerializeField] private PlayerHP playerHP;
         protected bool isDestroyed = false;
@@ -22,7 +22,7 @@ namespace GameDev4.Dawn
             {
                 switch (otc.Type)
                 {
-                    case ObstacleType.hpMinus1:
+                    case ObstacleType.spike:
                         playerHP.TakeDamage(1);
                         isDestroyed = true;
                         break;

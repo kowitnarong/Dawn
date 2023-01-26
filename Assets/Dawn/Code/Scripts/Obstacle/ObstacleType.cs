@@ -6,6 +6,10 @@ namespace GameDev4.Dawn
 {
     public enum ObstacleType
     {
-        hpMinus1,
+        sunMonster,
+        cloud,
+        drop,
+        ice,
+        spike,
     }
 }
