@@ -41,6 +41,7 @@ namespace GameDev4.Dawn
         {
             PhotonNetwork.JoinLobby();
         }
+
         public void OnClickCreate()
         {
             /*if (string.IsNullOrEmpty(roomInputfield.text))

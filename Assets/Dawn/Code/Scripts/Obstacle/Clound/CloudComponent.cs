@@ -5,7 +5,7 @@ using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
-    public class IceComponent : MonoBehaviour, IInteractable, IActorEnterExitHandler
+    public class CloudComponent : MonoBehaviour, IInteractable, IActorEnterExitHandler
     {
         [SerializeField] private PlayerHP playerHP;
         [SerializeField] private PlayerAbility _playerAbility;
@@ -24,9 +24,9 @@ namespace GameDev4.Dawn
             {
                 switch (otc.Type)
                 {
-                    case ObstacleType.ice:
+                    case ObstacleType.cloud:
                         CheckPlayerAbility();
-                        if (currentAbility == "summer" || currentAbility == "rain")
+                        if (currentAbility == "summer" || currentAbility == "winter")
                         {
                             playerHP.TakeDamage(1);
                         }

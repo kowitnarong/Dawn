@@ -5,12 +5,24 @@ using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
-    public class IceComponent : MonoBehaviour, IInteractable, IActorEnterExitHandler
+    public class DropComponent : MonoBehaviour, IInteractable, IActorEnterExitHandler
     {
-        [SerializeField] private PlayerHP playerHP;
-        [SerializeField] private PlayerAbility _playerAbility;
+        private PlayerHP playerHP;
+        private PlayerAbility _playerAbility;
         private string currentAbility;
         protected bool isDestroyed = false;
+
+        [Header("Setting (Less more faster)")]
+        [SerializeField] private float defaultSpeed = 0.4f;
+        [SerializeField] private float speedWhenDeduct = 2f;
+        [SerializeField] private float timeResetSpeed = 2f;
+
+        private void Start()
+        {
+            playerHP = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerHP>();
+            _playerAbility = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerAbility>();
+            Invoke("DestroyObjectAfterSpawn", 5f);
+        }
 
         public void Interact(GameObject actor)
         {
@@ -24,12 +36,14 @@ namespace GameDev4.Dawn
             {
                 switch (otc.Type)
                 {
-                    case ObstacleType.ice:
+                    case ObstacleType.drop:
                         CheckPlayerAbility();
-                        if (currentAbility == "summer" || currentAbility == "rain")
+                        if (currentAbility == "summer" || currentAbility == "winter")
                         {
                             playerHP.TakeDamage(1);
+                            _playerAbility.SlowSpeed(speedWhenDeduct, defaultSpeed, timeResetSpeed);
                         }
+
                         break;
                 }
                 isDestroyed = true;
@@ -41,6 +55,14 @@ namespace GameDev4.Dawn
         public void ActorExit(GameObject actor)
         {
 
+        }
+
+        public void DestroyObjectAfterSpawn()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Destroy(this.gameObject);
+            }
         }
 
         public void DestroyObject()

@@ -62,17 +62,17 @@ namespace GameDev4.Dawn
 
         public void CheckPlayerAbility()
         {
-            if (_playerAbility.m_playerAbility == PlayerAbility.playerAbility.summer)
+            switch (_playerAbility.m_playerAbility)
             {
-                currentAbility = "summer";
-            }
-            else if (_playerAbility.m_playerAbility == PlayerAbility.playerAbility.rain)
-            {
-                currentAbility = "rain";
-            }
-            else if (_playerAbility.m_playerAbility == PlayerAbility.playerAbility.winter)
-            {
-                currentAbility = "winter";
+                case PlayerAbility.playerAbility.summer:
+                    currentAbility = "summer";
+                    break;
+                case PlayerAbility.playerAbility.rain:
+                    currentAbility = "rain";
+                    break;
+                case PlayerAbility.playerAbility.winter:
+                    currentAbility = "winter";
+                    break;
             }
         }
     }

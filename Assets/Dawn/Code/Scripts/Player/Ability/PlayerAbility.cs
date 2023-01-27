@@ -20,18 +20,31 @@ namespace GameDev4.Dawn
         [SerializeField] private PlayerAbilityPreset playerAbilitySummer;
         [SerializeField] private PlayerAbilityPreset playerAbilityRain;
         [SerializeField] private PlayerAbilityPreset playerAbilityWinter;
-
+        private Rigidbody rb;
 
         private void Start()
         {
             m_material = textureObject.GetComponent<Renderer>();
             m_meshFilter = textureObject.GetComponent<MeshFilter>();
             changeCharacter = GetComponent<ChangeCharacter>();
+            rb = GetComponent<Rigidbody>();
         }
 
         private void Update()
         {
             UpdateAbility(changeCharacter.CharacterSelect);
+        }
+
+        public void SlowSpeed(float speedWhenDeduct, float defaultSpeed, float timeResetSpeed)
+        {
+            rb.drag = speedWhenDeduct;
+            StartCoroutine(ResetSpeed(defaultSpeed, timeResetSpeed));
+        }
+
+        public IEnumerator ResetSpeed(float defaultSpeed, float timeResetSpeed)
+        {
+            yield return new WaitForSeconds(timeResetSpeed);
+            rb.drag = defaultSpeed;
         }
 
         private void UpdateAbility(int characterSelect)
