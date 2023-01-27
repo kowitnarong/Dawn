@@ -30,9 +30,9 @@ namespace GameDev4.Dawn
                         {
                             playerHP.TakeDamage(1);
                         }
-                        isDestroyed = true;
                         break;
                 }
+                isDestroyed = true;
             }
 
             DestroyObject();
@@ -45,28 +45,25 @@ namespace GameDev4.Dawn
 
         public void DestroyObject()
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient && isDestroyed)
             {
-                if (isDestroyed)
-                {
-                    PhotonNetwork.Destroy(this.gameObject);
-                }
+                PhotonNetwork.Destroy(this.gameObject);
             }
         }
 
         public void CheckPlayerAbility()
         {
-            if (_playerAbility.m_playerAbility == PlayerAbility.playerAbility.summer)
+            switch (_playerAbility.m_playerAbility)
             {
-                currentAbility = "summer";
-            }
-            else if (_playerAbility.m_playerAbility == PlayerAbility.playerAbility.rain)
-            {
-                currentAbility = "rain";
-            }
-            else if (_playerAbility.m_playerAbility == PlayerAbility.playerAbility.winter)
-            {
-                currentAbility = "winter";
+                case PlayerAbility.playerAbility.summer:
+                    currentAbility = "summer";
+                    break;
+                case PlayerAbility.playerAbility.rain:
+                    currentAbility = "rain";
+                    break;
+                case PlayerAbility.playerAbility.winter:
+                    currentAbility = "winter";
+                    break;
             }
         }
     }
