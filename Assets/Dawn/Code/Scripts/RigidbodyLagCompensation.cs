@@ -16,6 +16,9 @@ namespace GameDev4.Dawn
 
         private void Awake()
         {
+            PhotonNetwork.SendRate = 60;
+            PhotonNetwork.SerializationRate = 30;
+
             _rigidbody = GetComponent<Rigidbody>();
         }
 
@@ -31,7 +34,6 @@ namespace GameDev4.Dawn
                 _netPosition = (Vector3)stream.ReceiveNext();
                 _netRotation = (Quaternion)stream.ReceiveNext();
 
-                // Only interpolate position and rotation if the distance between the current position and the received position exceeds the threshold
                 if (Vector3.Distance(_rigidbody.position, _netPosition) > _teleportDistanceThreshold)
                 {
                     _rigidbody.position = _netPosition;
