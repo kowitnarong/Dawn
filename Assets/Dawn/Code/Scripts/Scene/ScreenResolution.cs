@@ -71,7 +71,11 @@ namespace GameDev4.Dawn
         {
             if (Fullscreen)
             {
-                switch (ResoSelected)
+                //Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
+                //Debug.Log(Screen.currentResolution.width + " x " + Screen.currentResolution.height + " Full Screen: " + Fullscreen.ToString());
+                Screen.SetResolution(1920, 1080, true);
+                Debug.Log("1920 * 1080" + " Full Screen: " + Fullscreen.ToString());
+                /*switch (ResoSelected)
                 {
                     case "1,366 × 768":
                         Screen.SetResolution(1366, 768, true);
@@ -89,11 +93,13 @@ namespace GameDev4.Dawn
                         Screen.SetResolution(1366, 768, true);
                         Debug.Log("1366 * 768" + Fullscreen.ToString());
                         break;
-                }
+                }*/
             }
             else
             {
-                switch (ResoSelected)
+                Screen.SetResolution(1600, 900, false);
+                Debug.Log("1600 x 900" + " Full Screen: " + Fullscreen.ToString());
+                /*switch (ResoSelected)
                 {
                     case "1,366 × 768":
                         Screen.SetResolution(1366, 768, false);
@@ -111,7 +117,7 @@ namespace GameDev4.Dawn
                         Screen.SetResolution(1366, 768, false);
                         Debug.Log("1366 * 768" + Fullscreen.ToString());
                         break;
-                }
+                }*/
             }
             //MenuScene.isSceneResoChange = true;
         }
