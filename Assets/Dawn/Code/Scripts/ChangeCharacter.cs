@@ -69,16 +69,18 @@ namespace GameDev4.Dawn
                 }
             }
 
-            if (PhotonNetwork.IsMasterClient)
+            /*if (PhotonNetwork.IsMasterClient)
             {
-                if (isSlowMotion)
-                {
-                    StartSlowMotion();
-                }
-                else
-                {
-                    StopSlowMotion();
-                }
+               
+            }*/
+
+            if (isSlowMotion)
+            {
+                StartSlowMotion();
+            }
+            else
+            {
+                StopSlowMotion();
             }
 
             SelectCharacter(keyboard);
