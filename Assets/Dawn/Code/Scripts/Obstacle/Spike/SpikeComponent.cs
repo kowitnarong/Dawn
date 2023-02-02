@@ -29,7 +29,7 @@ namespace GameDev4.Dawn
                 }
             }
 
-            DestroyObject();
+            //DestroyObject();
         }
 
         public void ActorExit(GameObject actor)
@@ -37,7 +37,7 @@ namespace GameDev4.Dawn
 
         }
 
-        public void DestroyObject()
+        /*public void DestroyObject()
         {
             if (PhotonNetwork.IsMasterClient)
             {
@@ -46,6 +46,6 @@ namespace GameDev4.Dawn
                     PhotonNetwork.Destroy(this.gameObject);
                 }
             }
-        }
+        }*/
     }
 }
