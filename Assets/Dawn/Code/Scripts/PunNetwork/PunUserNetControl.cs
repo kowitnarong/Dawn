@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 namespace GameDev4.Dawn
 {
     [RequireComponent(typeof(PhotonView))]
-    [RequireComponent(typeof(PhotonTransformView))]
     public class PunUserNetControl : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
     {
         [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]

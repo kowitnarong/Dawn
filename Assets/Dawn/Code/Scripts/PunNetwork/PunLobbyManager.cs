@@ -194,7 +194,5 @@ namespace GameDev4.Dawn
         {
             PhotonNetwork.LoadLevel("SampleLevel_test");
         }
-
-
     }
 }

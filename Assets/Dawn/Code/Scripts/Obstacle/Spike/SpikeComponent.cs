@@ -23,7 +23,7 @@ namespace GameDev4.Dawn
                 switch (otc.Type)
                 {
                     case ObstacleType.spike:
-                        playerHP.TakeDamage(1);
+                        playerHP.TakeDamage(4);
                         isDestroyed = true;
                         break;
                 }
