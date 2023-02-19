@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace GameDev4.Dawn
 {
@@ -15,8 +16,39 @@ namespace GameDev4.Dawn
 
         private void Start()
         {
+            //PhotonNetwork.AutomaticallySyncScene = true;
             currentHP = maxHP;
             hpText.text = "HP: " + currentHP.ToString();
+        }
+
+        private void Update()
+        {
+            if (currentHP <= 0)
+            {
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    photonView.RPC("ResetLevel", RpcTarget.AllViaServer);
+                }
+            }
+        }
+
+        [PunRPC]
+        private void ResetLevel()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.DestroyAll();
+            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void Heal(int heal)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                currentHP += heal;
+                photonView.RPC("UpdateHP", RpcTarget.All, currentHP);
+            }
         }
 
         public void TakeDamage(int damage)
