@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace GameDev4.Dawn
 {
-    public enum ItemType {
-        CoinPlus,
-        HealthPlus,
+    public class PunGameSetting : MonoBehaviour
+    {
+        public const string START_GAMETIME = "GameTime";
     }
+
 }

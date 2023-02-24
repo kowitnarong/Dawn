@@ -87,6 +87,11 @@ namespace GameDev4.Dawn
             }
         }
 
+        public void ClickUpdateRoomList()
+        {
+            PhotonNetwork.JoinLobby();
+        }
+
         public void JoinRoom(string roomName)
         {
             PhotonNetwork.JoinRoom(roomName);

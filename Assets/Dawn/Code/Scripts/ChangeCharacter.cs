@@ -51,39 +51,41 @@ namespace GameDev4.Dawn
         {
             Keyboard keyboard = Keyboard.current;
 
-            if (coinCount.currentCoin >= 1)
-            {
-                if (keyboard[startCharacterKey].isPressed && isSlowMotion == false)
-                {
-                    tempIndexCharacter = characterSelect;
-                    photonView.RPC("SetSlowMotionOn", RpcTarget.AllBuffered);
-                }
-                else if (keyboard[startCharacterKey].wasReleasedThisFrame && isSlowMotion == true)
-                {
-                    photonView.RPC("SetSlowMotionOff", RpcTarget.AllBuffered);
-                    //Debug.Log(tempIndexCharacter + "/" + characterSelect);
-                    if (tempIndexCharacter != characterSelect)
-                    {
-                        coinCount.UseCoin(1);
-                    }
-                }
-            }
-
-            /*if (PhotonNetwork.IsMasterClient)
-            {
-               
-            }*/
-
-            if (isSlowMotion)
-            {
-                StartSlowMotion();
-            }
-            else
+            if (PunGameManager.isPause)
             {
                 StopSlowMotion();
+                characterChangeUI.SetActive(false);
+                return;
             }
 
-            SelectCharacter(keyboard);
+            if (coinCount.currentCoin >= 1)
+                {
+                    if (keyboard[startCharacterKey].isPressed && isSlowMotion == false)
+                    {
+                        tempIndexCharacter = characterSelect;
+                        photonView.RPC("SetSlowMotionOn", RpcTarget.AllBuffered);
+                    }
+                    else if (keyboard[startCharacterKey].wasReleasedThisFrame && isSlowMotion == true)
+                    {
+                        photonView.RPC("SetSlowMotionOff", RpcTarget.AllBuffered);
+                        //Debug.Log(tempIndexCharacter + "/" + characterSelect);
+                        if (tempIndexCharacter != characterSelect)
+                        {
+                            coinCount.UseCoin(1);
+                        }
+                    }
+                }
+
+                if (isSlowMotion)
+                {
+                    StartSlowMotion();
+                }
+                else
+                {
+                    StopSlowMotion();
+                }
+
+                SelectCharacter(keyboard);
         }
 
         [PunRPC]

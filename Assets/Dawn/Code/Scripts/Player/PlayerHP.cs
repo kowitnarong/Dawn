@@ -14,6 +14,12 @@ namespace GameDev4.Dawn
 
         [SerializeField] private TextMeshProUGUI hpText;
 
+        [Header("Game Over UI")]
+        [SerializeField] private GameObject gameOverUIMasterClient;
+        [SerializeField] private GameObject gameOverUIOtherClient;
+        [Header("Pause Game")]
+        [SerializeField] private PunGameManager punGameManager;
+
         private void Start()
         {
             //PhotonNetwork.AutomaticallySyncScene = true;
@@ -21,25 +27,29 @@ namespace GameDev4.Dawn
             hpText.text = "HP: " + currentHP.ToString();
         }
 
-        private void Update()
+        [PunRPC]
+        private void ShowUIResetLevel()
         {
-            if (currentHP <= 0)
-            {
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    photonView.RPC("ResetLevel", RpcTarget.AllViaServer);
-                }
-            }
+            gameOverUIOtherClient.SetActive(true);
         }
 
         [PunRPC]
         private void ResetLevel()
         {
+            PunGameManager.isPause = false;
             if (PhotonNetwork.IsMasterClient)
             {
                 PhotonNetwork.DestroyAll();
             }
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void ClickResetLevel()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                photonView.RPC("ResetLevel", RpcTarget.AllViaServer);
+            }
         }
 
         public void Heal(int heal)
@@ -56,6 +66,10 @@ namespace GameDev4.Dawn
             if (PhotonNetwork.IsMasterClient)
             {
                 currentHP -= damage;
+                if (currentHP < 0)
+                {
+                    currentHP = 0;
+                }
                 photonView.RPC("UpdateHP", RpcTarget.All, currentHP);
             }
         }
@@ -65,6 +79,15 @@ namespace GameDev4.Dawn
         {
             currentHP = newHP;
             hpText.text = "HP: " + currentHP.ToString();
+            if (currentHP <= 0)
+            {
+                punGameManager.PauseGame(true);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    gameOverUIMasterClient.SetActive(true);
+                    photonView.RPC("ShowUIResetLevel", RpcTarget.Others);
+                }
+            }
         }
     }
 }
