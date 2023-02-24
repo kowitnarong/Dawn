@@ -14,9 +14,13 @@ namespace GameDev4.Dawn
 
         protected virtual void Update()
         {
-
             Keyboard keyboard = Keyboard.current;
 
+            if (PunGameManager.isPause)
+            {
+                return;
+            }
+            
             if (keyboard[m_Preset._upKey].isPressed)
             {
                 MoveUp();
