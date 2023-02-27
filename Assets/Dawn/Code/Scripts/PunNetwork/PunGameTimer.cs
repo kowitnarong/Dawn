@@ -99,6 +99,11 @@ namespace GameDev4.Dawn
             }
         }
 
+        public void StopTimer()
+        {
+            isTimerRunning = false;
+        }
+
         public void ResetGameTimeUp()
         {
             playerHP.TakeDamage(999);

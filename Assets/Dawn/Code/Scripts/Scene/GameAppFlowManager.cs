@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
@@ -13,6 +14,22 @@ namespace GameDev4.Dawn
         public void LoadScene(string sceneName)
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        }
+
+        public void ResetSceneWithTransition(Animator transition)
+        {
+            transition.SetTrigger("End");
+            Invoke("LoadSceneDelay", 3f);
+        }
+
+        private void LoadSceneDelay()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.DestroyAll();
+            }
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name);
         }
 
         /*public void LoadMainMenu(Animator transition)

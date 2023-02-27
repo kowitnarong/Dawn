@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interaction Trigger
   - Ball
+  - SceneManagement
   layers:
   - Default
   - TransparentFX

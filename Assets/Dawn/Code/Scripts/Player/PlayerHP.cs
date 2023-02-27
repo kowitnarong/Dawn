@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 namespace GameDev4.Dawn
 {
@@ -17,8 +16,14 @@ namespace GameDev4.Dawn
         [Header("Game Over UI")]
         [SerializeField] private GameObject gameOverUIMasterClient;
         [SerializeField] private GameObject gameOverUIOtherClient;
-        [Header("Pause Game")]
+        [Header("Game Over")]
         [SerializeField] private PunGameManager punGameManager;
+        [SerializeField] private PunGameTimer punGameTimer;
+        [Header("Scene Manager")]
+        [SerializeField] private GameAppFlowManager gameAppFlowManager;
+        [SerializeField] private Animator transition;
+
+        protected bool isGameOver = false;
 
         private void Start()
         {
@@ -37,11 +42,7 @@ namespace GameDev4.Dawn
         private void ResetLevel()
         {
             PunGameManager.isPause = false;
-            if (PhotonNetwork.IsMasterClient)
-            {
-                PhotonNetwork.DestroyAll();
-            }
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            gameAppFlowManager.ResetSceneWithTransition(transition);
         }
 
         public void ClickResetLevel()
@@ -79,12 +80,14 @@ namespace GameDev4.Dawn
         {
             currentHP = newHP;
             hpText.text = "HP: " + currentHP.ToString();
-            if (currentHP <= 0)
+            if (currentHP <= 0 && isGameOver == false)
             {
                 punGameManager.PauseGame(true);
+                isGameOver = true;
                 if (PhotonNetwork.IsMasterClient)
                 {
                     gameOverUIMasterClient.SetActive(true);
+                    punGameTimer.StopTimer();
                     photonView.RPC("ShowUIResetLevel", RpcTarget.Others);
                 }
             }

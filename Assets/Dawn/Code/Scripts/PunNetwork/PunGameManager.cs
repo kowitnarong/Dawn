@@ -15,8 +15,19 @@ namespace GameDev4.Dawn
             isPause = pause;
         }
 
-        private void Update() {
+        private void Update()
+        {
             sPause = isPause;
+            if (isPause)
+            {
+                PhotonNetwork.MinimalTimeScaleToDispatchInFixedUpdate = 0.1f;
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                PhotonNetwork.MinimalTimeScaleToDispatchInFixedUpdate = 1f;
+                Time.timeScale = 1f;
+            }
         }
     }
 }
