@@ -23,11 +23,6 @@ namespace GameDev4.Dawn
                 PhotonNetwork.MinimalTimeScaleToDispatchInFixedUpdate = 0.1f;
                 Time.timeScale = 0f;
             }
-            else
-            {
-                PhotonNetwork.MinimalTimeScaleToDispatchInFixedUpdate = 1f;
-                Time.timeScale = 1f;
-            }
         }
     }
 }
