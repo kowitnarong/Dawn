@@ -42,6 +42,8 @@ namespace GameDev4.Dawn
         private void ResetLevel()
         {
             PunGameManager.isPause = false;
+            PhotonNetwork.MinimalTimeScaleToDispatchInFixedUpdate = 1f;
+            Time.timeScale = 1f;
             gameAppFlowManager.ResetSceneWithTransition(transition);
         }
 
