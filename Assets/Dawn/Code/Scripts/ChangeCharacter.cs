@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using Photon.Pun;
+using System;
+using UnityEngine.Events;
 
 namespace GameDev4.Dawn
 {
@@ -33,12 +35,15 @@ namespace GameDev4.Dawn
 
         [Header("----------Character UI----------")]
         [SerializeField] private GameObject characterChangeUI;
+        [SerializeField] private GameObject characterPanel;
         [SerializeField] private Image[] characterImages;
 
         [Header("----------Coin----------")]
         public CoinCount coinCount;
 
         private int tempIndexCharacter = 1;
+
+        public event Action<int> onCharacterChange;
 
         void Start()
         {
@@ -93,6 +98,7 @@ namespace GameDev4.Dawn
         {
             isSlowMotion = true;
             characterChangeUI.SetActive(true);
+            characterPanel.SetActive(false);
         }
 
         [PunRPC]
@@ -100,6 +106,7 @@ namespace GameDev4.Dawn
         {
             isSlowMotion = false;
             characterChangeUI.SetActive(false);
+            characterPanel.SetActive(true);
         }
 
         private void StartSlowMotion()
@@ -190,6 +197,7 @@ namespace GameDev4.Dawn
         {
             characterSelect = tempCharacterSelect;
             CharacterSelectAnimation();
+            onCharacterChange?.Invoke(characterSelect);
         }
     }
 }
