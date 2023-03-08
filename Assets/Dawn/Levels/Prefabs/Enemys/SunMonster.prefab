@@ -2401,7 +2401,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70fb03b75acf42945a117903d8f457b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportIfFar: 0
-  teleportIfFarDistance: 0
-  smoothPos: 5
-  smoothRot: 5
+  _interpolationSmooth: 5
+  _teleportDistanceThreshold: 5
