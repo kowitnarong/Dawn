@@ -9,7 +9,6 @@ namespace GameDev4.Dawn
     public class CoinCount : MonoBehaviourPun
     {
         public int currentCoin = 0;
-
         [SerializeField] private TextMeshProUGUI coinText;
 
         private void Start()
