@@ -59,6 +59,10 @@ namespace GameDev4.Dawn
         {
             if (PhotonNetwork.IsMasterClient)
             {
+                if (currentHP >= maxHP)
+                {
+                    return;
+                }
                 currentHP += heal;
                 photonView.RPC("UpdateHP", RpcTarget.All, currentHP);
             }

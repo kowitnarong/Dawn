@@ -40,6 +40,7 @@ namespace GameDev4.Dawn
 
         [Header("----------Coin----------")]
         public CoinCount coinCount;
+        [SerializeField] private int coinUse = 3;
 
         private int tempIndexCharacter = 1;
 
@@ -63,7 +64,7 @@ namespace GameDev4.Dawn
                 return;
             }
 
-            if (coinCount.currentCoin >= 1)
+            if (coinCount.currentCoin >= coinUse)
                 {
                     if (keyboard[startCharacterKey].isPressed && isSlowMotion == false)
                     {
@@ -76,7 +77,7 @@ namespace GameDev4.Dawn
                         //Debug.Log(tempIndexCharacter + "/" + characterSelect);
                         if (tempIndexCharacter != characterSelect)
                         {
-                            coinCount.UseCoin(1);
+                            coinCount.UseCoin(coinUse); 
                         }
                     }
                 }

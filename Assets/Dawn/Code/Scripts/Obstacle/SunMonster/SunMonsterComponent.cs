@@ -12,6 +12,8 @@ namespace GameDev4.Dawn
         private string currentAbility;
         protected bool isDestroyed = false;
 
+        [SerializeField] private int damage = 1;
+
         public void Interact(GameObject actor)
         {
 
@@ -24,11 +26,11 @@ namespace GameDev4.Dawn
             {
                 switch (otc.Type)
                 {
-                    case ObstacleType.ice:
+                    case ObstacleType.sunMonster:
                         CheckPlayerAbility();
                         if (currentAbility == "rain" || currentAbility == "winter")
                         {
-                            playerHP.TakeDamage(1);
+                            playerHP.TakeDamage(damage);
                         }
                         break;
                 }

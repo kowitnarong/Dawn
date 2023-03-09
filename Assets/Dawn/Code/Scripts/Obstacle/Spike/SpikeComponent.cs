@@ -10,6 +10,8 @@ namespace GameDev4.Dawn
         [SerializeField] private PlayerHP playerHP;
         protected bool isDestroyed = false;
 
+        [SerializeField] private int damage = 1;
+
         public void Interact(GameObject actor)
         {
 
@@ -23,7 +25,7 @@ namespace GameDev4.Dawn
                 switch (otc.Type)
                 {
                     case ObstacleType.spike:
-                        playerHP.TakeDamage(4);
+                        playerHP.TakeDamage(damage);
                         isDestroyed = true;
                         break;
                 }

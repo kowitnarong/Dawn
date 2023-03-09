@@ -12,6 +12,8 @@ namespace GameDev4.Dawn
         private string currentAbility;
         protected bool isDestroyed = false;
 
+        [SerializeField] private int damage = 1;
+
         public void Interact(GameObject actor)
         {
 
@@ -28,7 +30,7 @@ namespace GameDev4.Dawn
                         CheckPlayerAbility();
                         if (currentAbility == "summer" || currentAbility == "winter")
                         {
-                            playerHP.TakeDamage(1);
+                            playerHP.TakeDamage(damage);
                         }
                         break;
                 }

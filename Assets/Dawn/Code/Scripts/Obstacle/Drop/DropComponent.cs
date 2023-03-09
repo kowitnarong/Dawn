@@ -17,11 +17,14 @@ namespace GameDev4.Dawn
         [SerializeField] private float speedWhenDeduct = 2f;
         [SerializeField] private float timeResetSpeed = 2f;
 
+        [Header("Destroy Time")]
+        [SerializeField] private float destroyTime = 5f;
+
         private void Start()
         {
             playerHP = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerHP>();
             _playerAbility = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerAbility>();
-            Invoke("DestroyObjectAfterSpawn", 5f);
+            Invoke("DestroyObjectAfterSpawn", destroyTime);
         }
 
         public void Interact(GameObject actor)
@@ -50,6 +53,15 @@ namespace GameDev4.Dawn
             }
 
             DestroyObject();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            {
+                isDestroyed = true;
+                DestroyObject();
+            }
         }
 
         public void ActorExit(GameObject actor)
