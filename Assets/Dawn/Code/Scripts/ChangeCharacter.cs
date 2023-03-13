@@ -193,6 +193,11 @@ namespace GameDev4.Dawn
             }
         }
 
+        public void ChangeCharacterWithItem(int index)
+        {
+            photonView.RPC("UpdateCharacterSelect", RpcTarget.AllBuffered, index);
+        }
+
         [PunRPC]
         private void UpdateCharacterSelect(int tempCharacterSelect)
         {
