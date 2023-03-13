@@ -366,3 +366,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHP: {fileID: 0}
+  damage: 10
