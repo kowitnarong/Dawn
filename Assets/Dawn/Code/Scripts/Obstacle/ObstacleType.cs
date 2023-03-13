@@ -11,5 +11,6 @@ namespace GameDev4.Dawn
         drop,
         ice,
         spike,
+        spikeCanDestroy,
     }
 }
