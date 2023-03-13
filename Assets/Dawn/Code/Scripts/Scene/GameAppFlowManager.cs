@@ -32,6 +32,21 @@ namespace GameDev4.Dawn
             PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name);
         }
 
+        public void LoadSceneWithTransition(Animator transition)
+        {
+            transition.SetTrigger("End");
+        }
+
+        public void LoadLevelPhoton(string levelName)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.DestroyAll();
+            }
+            PhotonNetwork.LoadLevel(levelName);
+        }
+
+
         /*public void LoadMainMenu(Animator transition)
         {
             Time.timeScale = 1f;

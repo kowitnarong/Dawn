@@ -197,7 +197,7 @@ namespace GameDev4.Dawn
 
         public void OnClickStartGame()
         {
-            PhotonNetwork.LoadLevel("SampleLevel_test");
+            PhotonNetwork.LoadLevel("Level 1");
         }
     }
 }
