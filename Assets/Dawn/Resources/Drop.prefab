@@ -34148,10 +34148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9c97af79bdcd34a96e9a5a76adbbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 0.4
-  speedWhenDeduct: 2
+  defaultSpeed: 0.1
+  speedWhenDeduct: 2.5
   timeResetSpeed: 2
-  destroyTime: 5
+  destroyTime: 2.2
 --- !u!54 &-8843494738666968439
 Rigidbody:
   m_ObjectHideFlags: 0
