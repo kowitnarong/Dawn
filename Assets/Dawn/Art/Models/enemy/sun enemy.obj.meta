@@ -3,7 +3,32 @@ guid: 4d2b34112e9bfc547a6daae9eac148dc
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CubeFBXASC046074Mat
+    second: {fileID: 2100000, guid: b2aa95a78695d304bbdc072917612858, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CubeFBXASC046075Mat
+    second: {fileID: 2100000, guid: 4bf8ffa7c91ed9048b2199e18531a545, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CubeFBXASC046078Mat
+    second: {fileID: 2100000, guid: b2aa95a78695d304bbdc072917612858, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CubeFBXASC046080Mat
+    second: {fileID: 2100000, guid: b2aa95a78695d304bbdc072917612858, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlaneFBXASC046021Mat
+    second: {fileID: 2100000, guid: 248f9b58cb11fac4baead4afba5e24dc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
