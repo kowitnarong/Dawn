@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 22f2ef1b97de5a549a74edb184d35e50
+guid: b976bb972209aa6429af9f818ae86a42
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 62110494c2957a74188fc8074268a912, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: bird_lambert1_BaseMap.1001
-    second: {fileID: 2800000, guid: 99b281faaf7815d4ebb932b29ae12547, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
