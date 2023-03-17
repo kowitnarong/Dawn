@@ -35,8 +35,6 @@ namespace GameDev4.Dawn
 
         private int indexRoom = 1;
 
-        //public bool isHost = false;
-
         private void Start()
         {
             PhotonNetwork.JoinLobby();
@@ -100,7 +98,6 @@ namespace GameDev4.Dawn
         public void OnClickLeaveRoom()
         {
             PhotonNetwork.LeaveRoom();
-            //isHost = false;
             playReadyCount = 0;
         }
 
@@ -129,8 +126,6 @@ namespace GameDev4.Dawn
             lobbyPanel.SetActive(true);
             roomPanel.SetActive(false);
             playReadyCount = 0;
-            //isHost = false;
-
             PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "Ready", false } });
         }
 
@@ -146,6 +141,7 @@ namespace GameDev4.Dawn
 
         void UpdatePlayerList()
         {
+           
             foreach (PunPlayerItem item in playerItemsList)
             {
                 Destroy(item.gameObject);
@@ -160,7 +156,8 @@ namespace GameDev4.Dawn
             foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
             {
                 PunPlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
-                newPlayerItem.SetPlayerInfo(player.Value);
+
+                newPlayerItem.SetPlayerInfo(player.Value, player.Value.ActorNumber);
 
                 if (player.Value == PhotonNetwork.LocalPlayer)
                 {

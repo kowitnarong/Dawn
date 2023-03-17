@@ -28,6 +28,11 @@ namespace GameDev4.Dawn
         public Sprite[] avatars;
         private int indexAvatar;
 
+        public Image borderImage;
+        public GameObject player1UI;
+        public GameObject player2UI;
+        public GameObject CrownUI;
+
         ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
 
         Player player;
@@ -39,10 +44,22 @@ namespace GameDev4.Dawn
             PhotonNetwork.SetPlayerCustomProperties(playerProperties);
         }
 
-        public void SetPlayerInfo(Player _player)
+        public void SetPlayerInfo(Player _player, int actorNumber)
         {
             playerName.text = _player.NickName;
             player = _player;
+            if (actorNumber == 1)
+            {
+                borderImage.color = Color.red;
+                player1UI.SetActive(true);
+                CrownUI.SetActive(true);
+            }
+            else if (actorNumber >= 2)
+            {
+                borderImage.color = Color.blue;
+                player2UI.SetActive(true);
+            }
+            
             UpdatePlayerItem(player);
         }
 
@@ -83,7 +100,6 @@ namespace GameDev4.Dawn
             {
                 if ((bool)player.CustomProperties["Ready"])
                 {
-
                     playerBGImage.sprite = playerReadyImage;
                     readyButton.SetActive(false);
                     GameObject.Find("LobbyManager").GetComponent<PunLobbyManager>().playReadyCount++;

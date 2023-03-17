@@ -22,17 +22,17 @@ namespace GameDev4.Dawn
         bool PlaySoundLevel2;
         bool PlaySoundLevel3;
         bool PlaySoundMenu;
+
         public static bool ChangeScene;
+
         void Start()
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-
-            string sceneName = currentScene.name;
+            string sceneName = SceneName.SceneNameString;
 
             /*Level1 = Array.Find(sounds, sound => sound.name == "BG_Scene1");
             Level2 = Array.Find(sounds, sound => sound.name == "BG_Scene2");
-            Level3 = Array.Find(sounds, sound => sound.name == "BG_Scene3");
-            Menu = Array.Find(sounds, sound => sound.name == "Menu_Scene");*/
+            Level3 = Array.Find(sounds, sound => sound.name == "BG_Scene3");*/
+            //Menu = Array.Find(sounds, sound => sound.name == "Menu_Scene");
 
             if (sceneName == "Level1")
             {
@@ -127,9 +127,7 @@ namespace GameDev4.Dawn
 
         void Update()
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-
-            string sceneName = currentScene.name;
+            string sceneName = SceneName.SceneNameString;
 
             /*if (PauseMenu.GameIsPaused)
             {
