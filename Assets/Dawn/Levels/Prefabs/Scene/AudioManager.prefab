@@ -46,13 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds: []
   Level1:
-    name: 
-    clip: {fileID: 0}
-    mixerGroup: {fileID: 0}
-    volume: 0
-    pitch: 0
+    name: Level1
+    clip: {fileID: 8300000, guid: 6ece6c07d2cc43f43b997d98d3a12a4d, type: 3}
+    mixerGroup: {fileID: -5436833033629109240, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.1
+    pitch: 1
     spatial: 0
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   Level2:
     name: 
@@ -73,11 +73,11 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   Menu:
-    name: 
-    clip: {fileID: 0}
-    mixerGroup: {fileID: 0}
-    volume: 0
-    pitch: 0
+    name: MenuMusic
+    clip: {fileID: 8300000, guid: 1a8687898bcaff147b382050012e7c79, type: 3}
+    mixerGroup: {fileID: -5436833033629109240, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.1
+    pitch: 1
     spatial: 0
-    loop: 0
+    loop: 1
     source: {fileID: 0}
