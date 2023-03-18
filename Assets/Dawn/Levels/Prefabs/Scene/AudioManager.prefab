@@ -55,13 +55,13 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   Level2:
-    name: 
-    clip: {fileID: 0}
-    mixerGroup: {fileID: 0}
-    volume: 0
-    pitch: 0
+    name: Level2
+    clip: {fileID: 8300000, guid: 2a70d48ad5edb5d418373873f2010cfc, type: 3}
+    mixerGroup: {fileID: -5436833033629109240, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.1
+    pitch: 1
     spatial: 0
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   Level3:
     name: 

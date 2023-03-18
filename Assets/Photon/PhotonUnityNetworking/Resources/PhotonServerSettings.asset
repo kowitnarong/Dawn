@@ -60,6 +60,10 @@ MonoBehaviour:
   - NextLevel
   - LoadLevelPhoton
   - Win
+  - UIButtonMoveUp
+  - ResetColorButtonDown
+  - ResetColorButtonUp
+  - UIButtonMoveDown
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
