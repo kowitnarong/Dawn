@@ -10,7 +10,7 @@ public class rescalemat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Renderer>().material.mainTextureScale = new Vector2(transform.localScale.x / scaleFactor, transform.localScale.z / scaleFactor);
+        GetComponent<Renderer>().sharedMaterial.mainTextureScale = new Vector3(transform.localScale.x / scaleFactor, transform.localScale.y / scaleFactor , transform.localScale.z / scaleFactor);
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class rescalemat : MonoBehaviour
     {
         if (transform.hasChanged && Application.isEditor && !Application.isPlaying)
         {
-            GetComponent<Renderer>().material.mainTextureScale = new Vector2(transform.localScale.x / scaleFactor, transform.localScale.z / scaleFactor);
+            GetComponent<Renderer>().sharedMaterial.mainTextureScale = new Vector3(transform.localScale.x / scaleFactor, transform.localScale.y / scaleFactor , transform.localScale.z / scaleFactor);
             transform.hasChanged = false;
         }
     }
