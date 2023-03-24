@@ -21,6 +21,7 @@ namespace GameDev4.Dawn
             if (PhotonNetwork.IsMasterClient)
             {
                 currentCoin += coin;
+                photonView.RPC("PlaySoundCollectCoin", RpcTarget.All);
                 photonView.RPC("UpdateCoinAll", RpcTarget.All, currentCoin);
             }
         }
@@ -36,6 +37,12 @@ namespace GameDev4.Dawn
         {
             currentCoin = newCoin;
             coinText.text = "Coin: " + currentCoin.ToString();
+        }
+
+        [PunRPC]
+        private void PlaySoundCollectCoin()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_collectCoin");
         }
     }
 }

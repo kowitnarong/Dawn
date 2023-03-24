@@ -44,7 +44,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f12109cb0c654f4c900a0987c98ba4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Sfx_birdSwitched
+    clip: {fileID: 8300000, guid: 24528e931936c534aa971c853d598ab3, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_collectCoin
+    clip: {fileID: 8300000, guid: d11b8a6470479d04bb4f25d4f104705a, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0.348
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_collectHealItem
+    clip: {fileID: 8300000, guid: c200531fe6be3aa4195168d00929c239, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_dropHitBird
+    clip: {fileID: 8300000, guid: f49d7036d432dd3489c6c6b2310a7af2, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_birdDie
+    clip: {fileID: 8300000, guid: c9c2f231be2f08143a6866b438d64dc3, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_birdHurt
+    clip: {fileID: 8300000, guid: bf98dbe1e1b66ce4ea429d67ca9e9286, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_UIClick
+    clip: {fileID: 8300000, guid: 11b488d4c58b0fc438fff48d6efd778d, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.3
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_Sfx_UIHover
+    clip: {fileID: 8300000, guid: 7da1e938638f10e48b9e263129a461fe, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.3
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_GameOver
+    clip: {fileID: 8300000, guid: 547953f74c23dfc4ab39c9c5cc20fa22, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_UISwitchingBird
+    clip: {fileID: 8300000, guid: ca3242128882c174dba9ac8c5eefaf8b, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_Win
+    clip: {fileID: 8300000, guid: 417f9a25a01e81c4c876a45e68b903c0, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Sfx_monsterDie
+    clip: {fileID: 8300000, guid: 77726cc910497bc4ebb3ab80a061ac66, type: 3}
+    mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
+    volume: 0.2
+    pitch: 1
+    spatial: 0
+    loop: 0
+    source: {fileID: 0}
   Level1:
     name: Level1
     clip: {fileID: 8300000, guid: 6ece6c07d2cc43f43b997d98d3a12a4d, type: 3}
@@ -73,7 +169,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   Menu:
-    name: MenuMusic
+    name: Menu_Scene
     clip: {fileID: 8300000, guid: 1a8687898bcaff147b382050012e7c79, type: 3}
     mixerGroup: {fileID: -5436833033629109240, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
     volume: 0.1

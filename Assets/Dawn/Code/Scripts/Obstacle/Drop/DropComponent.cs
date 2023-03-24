@@ -5,7 +5,7 @@ using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
-    public class DropComponent : MonoBehaviour, IInteractable, IActorEnterExitHandler
+    public class DropComponent : MonoBehaviourPun, IInteractable, IActorEnterExitHandler
     {
         private PlayerHP playerHP;
         private PlayerAbility _playerAbility;
@@ -44,9 +44,19 @@ namespace GameDev4.Dawn
                         if (currentAbility == "summer" || currentAbility == "winter")
                         {
                             playerHP.TakeDamage(1);
+                            if (PhotonNetwork.IsMasterClient)
+                            {
+                                photonView.RPC("PlaySoundHitBird", RpcTarget.All);
+                            }
                             _playerAbility.SlowSpeed(speedWhenDeduct, defaultSpeed, timeResetSpeed);
                         }
-
+                        else
+                        {
+                            if (PhotonNetwork.IsMasterClient)
+                            {
+                                photonView.RPC("PlaySoundDestroy", RpcTarget.All);
+                            }
+                        }
                         break;
                 }
                 isDestroyed = true;
@@ -99,6 +109,18 @@ namespace GameDev4.Dawn
                     currentAbility = "winter";
                     break;
             }
+        }
+
+        [PunRPC]
+        private void PlaySoundHitBird()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_dropHitBird");
+        }
+
+        [PunRPC]
+        private void PlaySoundDestroy()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_monsterDie");
         }
     }
 }

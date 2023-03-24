@@ -5,7 +5,7 @@ using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
-    public class IceComponent : MonoBehaviour, IInteractable, IActorEnterExitHandler
+    public class IceComponent : MonoBehaviourPun, IInteractable, IActorEnterExitHandler
     {
         [SerializeField] private PlayerHP playerHP;
         [SerializeField] private PlayerAbility _playerAbility;
@@ -32,6 +32,13 @@ namespace GameDev4.Dawn
                         {
                             playerHP.TakeDamage(damage);
                         }
+                        else
+                        {
+                           if (PhotonNetwork.IsMasterClient)
+                            {
+                                photonView.RPC("PlaySoundDestroy", RpcTarget.All);
+                            }
+                        }
                         break;
                 }
                 isDestroyed = true;
@@ -51,6 +58,12 @@ namespace GameDev4.Dawn
             {
                 PhotonNetwork.Destroy(this.gameObject);
             }
+        }
+
+        [PunRPC]
+        private void PlaySoundDestroy()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_monsterDie");
         }
 
         public void CheckPlayerAbility()

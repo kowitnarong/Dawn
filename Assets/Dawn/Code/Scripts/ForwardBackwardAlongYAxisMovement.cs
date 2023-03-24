@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
@@ -22,6 +23,14 @@ namespace GameDev4.Dawn
 
         private void Update()
         {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                MovePingPongYAxis();
+            }
+        }
+
+        private void MovePingPongYAxis()
+        {
             if (_isGoingUp)
             {
                 _currentY = Mathf.MoveTowards(transform.position.y, _endY, speed * Time.deltaTime);
@@ -39,6 +48,6 @@ namespace GameDev4.Dawn
                 }
             }
             transform.position = new Vector3(transform.position.x, _currentY, transform.position.z);
-        } 
+        }
     }
 }

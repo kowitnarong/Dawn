@@ -23,11 +23,12 @@ namespace GameDev4.Dawn
         [SerializeField] private GameAppFlowManager gameAppFlowManager;
         [SerializeField] private Animator transition;
 
-        protected bool isGameOver = false;
+        [HideInInspector] public bool isGameOver = false;
 
         private void Start()
         {
             //PhotonNetwork.AutomaticallySyncScene = true;
+            gameAppFlowManager = GameAppFlowManager.instance;
             currentHP = maxHP;
             hpText.text = "HP: " + currentHP.ToString();
         }
@@ -59,6 +60,7 @@ namespace GameDev4.Dawn
         {
             if (PhotonNetwork.IsMasterClient)
             {
+                photonView.RPC("PlaySoundBirdHeal", RpcTarget.All);
                 if (currentHP >= maxHP)
                 {
                     return;
@@ -77,7 +79,11 @@ namespace GameDev4.Dawn
                 {
                     currentHP = 0;
                 }
-                photonView.RPC("UpdateHP", RpcTarget.All, currentHP);
+                if (isGameOver == false)
+                {
+                    photonView.RPC("PlaySoundBirdHurt", RpcTarget.All);
+                    photonView.RPC("UpdateHP", RpcTarget.All, currentHP);
+                }
             }
         }
 
@@ -92,11 +98,30 @@ namespace GameDev4.Dawn
                 isGameOver = true;
                 if (PhotonNetwork.IsMasterClient)
                 {
+                    photonView.RPC("PlaySoundBirdDie", RpcTarget.All);
                     gameOverUIMasterClient.SetActive(true);
                     punGameTimer.StopTimer();
                     photonView.RPC("ShowUIResetLevel", RpcTarget.Others);
                 }
             }
+        }
+
+        [PunRPC]
+        public void PlaySoundBirdHurt()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_birdHurt");
+        }
+
+        [PunRPC]
+        public void PlaySoundBirdHeal()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_collectHealItem");
+        }
+
+        [PunRPC]
+        public void PlaySoundBirdDie()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_GameOver");
         }
     }
 }
