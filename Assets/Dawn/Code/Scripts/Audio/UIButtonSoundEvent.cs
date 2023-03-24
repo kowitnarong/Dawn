@@ -24,11 +24,11 @@ namespace GameDev4.Dawn
 
         void PlayClicked()
         {
-            //FindObjectOfType<AudioManager>().Play("Clicked");
+            FindObjectOfType<AudioManager>().Play("Sfx_UIClick");
         }
         void PlayHover()
         {
-            //FindObjectOfType<AudioManager>().Play("Hover");
+            FindObjectOfType<AudioManager>().Play("Sfx_Sfx_UIHover");
         }
     }
 }

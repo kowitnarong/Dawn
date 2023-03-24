@@ -51,6 +51,7 @@ namespace GameDev4.Dawn
                 toggles[1].isOn = false;
                 toggles[2].isOn = false;
                 index = 0;
+                PlaySound();
             }
         }
 
@@ -62,6 +63,7 @@ namespace GameDev4.Dawn
                 toggles[1].isOn = true;
                 toggles[2].isOn = false;
                 index = 1;
+                PlaySound();
             }
         }
 
@@ -73,7 +75,13 @@ namespace GameDev4.Dawn
                 toggles[1].isOn = false;
                 toggles[2].isOn = true;
                 index = 2;
+                PlaySound();
             }
+        }
+
+        private void PlaySound()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_UISwitchingBird");
         }
 
         private void OnConnectEnable()
