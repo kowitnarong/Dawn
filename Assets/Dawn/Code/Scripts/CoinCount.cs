@@ -29,6 +29,7 @@ namespace GameDev4.Dawn
         public void UseCoin(int coin)
         {
             currentCoin -= coin;
+            photonView.RPC("PlaySoundUseCoin", RpcTarget.All);
             photonView.RPC("UpdateCoinAll", RpcTarget.All, currentCoin);
         }
 
@@ -43,6 +44,12 @@ namespace GameDev4.Dawn
         private void PlaySoundCollectCoin()
         {
             FindObjectOfType<AudioManager>().Play("Sfx_collectCoin");
+        }
+
+        [PunRPC]
+        private void PlaySoundUseCoin()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_birdSwitched");
         }
     }
 }

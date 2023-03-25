@@ -38,6 +38,12 @@ namespace GameDev4.Dawn
                 MasterWinPanel.SetActive(true);
             }
             punGameManager.PauseGame(true);
+            PlaySoundWin();
+        }
+
+        private void PlaySoundWin()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_win");
         }
 
         [PunRPC]

@@ -203,13 +203,13 @@ namespace GameDev4.Dawn
         {
             characterSelect = tempCharacterSelect;
             CharacterSelectAnimation();
-            PlaySound();
+            PlaySoundUISwitchingBird();
             onCharacterChange?.Invoke(characterSelect);
         }
 
-        private void PlaySound()
+        private void PlaySoundUISwitchingBird()
         {
-            FindObjectOfType<AudioManager>().Play("Sfx_birdSwitched");
+            FindObjectOfType<AudioManager>().Play("Sfx_UISwitchingBird");
         }
     }
 }

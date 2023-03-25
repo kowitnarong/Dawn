@@ -37,11 +37,7 @@ namespace GameDev4.Dawn
 
         public void DestroyObject()
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                PhotonNetwork.Destroy(this.gameObject);
-            }
-            
+            Destroy(this.gameObject);
         }
     }
 }

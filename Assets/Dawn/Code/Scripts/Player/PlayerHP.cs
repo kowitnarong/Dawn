@@ -27,8 +27,6 @@ namespace GameDev4.Dawn
 
         private void Start()
         {
-            //PhotonNetwork.AutomaticallySyncScene = true;
-            gameAppFlowManager = GameAppFlowManager.instance;
             currentHP = maxHP;
             hpText.text = "HP: " + currentHP.ToString();
         }

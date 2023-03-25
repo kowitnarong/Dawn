@@ -33662,7 +33662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2316499035098612609, guid: d8e882c80cd94464eaba1aad96a78aba, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2316499035098612609, guid: d8e882c80cd94464eaba1aad96a78aba, type: 3}
       propertyPath: _inputActions
@@ -33864,6 +33864,10 @@ PrefabInstance:
     - target: {fileID: 7848329171323454270, guid: 50276eba7f30087429037d40b4861bfb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159432687037262796, guid: 50276eba7f30087429037d40b4861bfb, type: 3}
+      propertyPath: sounds.Array.data[10].name
+      value: Sfx_win
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50276eba7f30087429037d40b4861bfb, type: 3}

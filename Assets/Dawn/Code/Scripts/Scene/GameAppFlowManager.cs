@@ -11,23 +11,6 @@ namespace GameDev4.Dawn
     {
         protected static bool IsSceneOptionsLoaded;
 
-        public static GameAppFlowManager instance;
-
-        private void Start()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            DontDestroyOnLoad(gameObject);
-        }
-
         public void LoadScene(string sceneName)
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
