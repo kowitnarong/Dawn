@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3081105068167258469}
   - component: {fileID: 2316499035098612609}
+  - component: {fileID: 1251800128}
+  - component: {fileID: 1251800129}
   m_Layer: 0
   m_Name: --PunNetworkManager--
   m_TagString: Untagged
@@ -49,4 +51,49 @@ MonoBehaviour:
   MaxPlayers: 2
   playerTTL: -1
   _inputActions: {fileID: 0}
-  GamePlayerPrefab: {fileID: 0}
+--- !u!114 &1251800128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810838742293509912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62880f27e95abf2418fd79e9d9d568b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GuiOffset:
+    serializedVersion: 2
+    x: 250
+    y: 0
+    width: 300
+    height: 300
+  DontDestroy: 1
+  ServerTimestamp: 0
+  DetailedConnection: 1
+  Server: 0
+  AppVersion: 0
+  UserId: 0
+  Room: 0
+  RoomProps: 0
+  EventsIn: 0
+  LocalPlayer: 0
+  PlayerProps: 0
+  Others: 0
+  Buttons: 0
+  ExpectedUsers: 0
+--- !u!114 &1251800129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810838742293509912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8cc41be6531f824e8a920977b9c7975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPlayer1: 0
+  _isPlayer2: 0

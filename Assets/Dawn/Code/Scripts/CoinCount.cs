@@ -9,10 +9,10 @@ namespace GameDev4.Dawn
     public class CoinCount : MonoBehaviourPun
     {
         public int currentCoin = 0;
-
         [SerializeField] private TextMeshProUGUI coinText;
 
-        private void Start(){
+        private void Start()
+        {
             coinText.text = "Coin: " + currentCoin.ToString();
         }
 
@@ -21,8 +21,16 @@ namespace GameDev4.Dawn
             if (PhotonNetwork.IsMasterClient)
             {
                 currentCoin += coin;
+                photonView.RPC("PlaySoundCollectCoin", RpcTarget.All);
                 photonView.RPC("UpdateCoinAll", RpcTarget.All, currentCoin);
             }
+        }
+
+        public void UseCoin(int coin)
+        {
+            currentCoin -= coin;
+            photonView.RPC("PlaySoundUseCoin", RpcTarget.All);
+            photonView.RPC("UpdateCoinAll", RpcTarget.All, currentCoin);
         }
 
         [PunRPC]
@@ -30,6 +38,18 @@ namespace GameDev4.Dawn
         {
             currentCoin = newCoin;
             coinText.text = "Coin: " + currentCoin.ToString();
+        }
+
+        [PunRPC]
+        private void PlaySoundCollectCoin()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_collectCoin");
+        }
+
+        [PunRPC]
+        private void PlaySoundUseCoin()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_birdSwitched");
         }
     }
 }

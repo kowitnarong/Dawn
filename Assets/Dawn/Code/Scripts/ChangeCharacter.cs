@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using Photon.Pun;
+using System;
+using UnityEngine.Events;
 
 namespace GameDev4.Dawn
 {
@@ -27,13 +29,22 @@ namespace GameDev4.Dawn
         public Key player2ChangeCharacterKeyLeft = Key.LeftArrow;
         public Key player2ChangeCharacterKeyRight = Key.RightArrow;
 
-        [SerializeField] private int charecterSelect = 1;
-        public int CharacterSelect { get { return charecterSelect; } }
+        [SerializeField] private int characterSelect = 1;
+        public int CharacterSelect { get { return characterSelect; } }
         private int tempCharacterSelect = 1;
 
         [Header("----------Character UI----------")]
         [SerializeField] private GameObject characterChangeUI;
+        [SerializeField] private GameObject characterPanel;
         [SerializeField] private Image[] characterImages;
+
+        [Header("----------Coin----------")]
+        public CoinCount coinCount;
+        [SerializeField] private int coinUse = 3;
+
+        private int tempIndexCharacter = 1;
+
+        public event Action<int> onCharacterChange;
 
         void Start()
         {
@@ -46,17 +57,31 @@ namespace GameDev4.Dawn
         {
             Keyboard keyboard = Keyboard.current;
 
-            if (keyboard[startCharacterKey].isPressed && isSlowMotion == false)
+            if (PunGameManager.isPause)
             {
-                photonView.RPC("SetSlowMotionOn", RpcTarget.AllBuffered);
-            }
-            else if (keyboard[startCharacterKey].wasReleasedThisFrame && isSlowMotion == true)
-            {
-                photonView.RPC("SetSlowMotionOff", RpcTarget.AllBuffered);
+                StopSlowMotion();
+                characterChangeUI.SetActive(false);
+                return;
             }
 
-            if (PhotonNetwork.IsMasterClient)
-            {
+            if (coinCount.currentCoin >= coinUse)
+                {
+                    if (keyboard[startCharacterKey].isPressed && isSlowMotion == false)
+                    {
+                        tempIndexCharacter = characterSelect;
+                        photonView.RPC("SetSlowMotionOn", RpcTarget.AllBuffered);
+                    }
+                    else if (keyboard[startCharacterKey].wasReleasedThisFrame && isSlowMotion == true)
+                    {
+                        photonView.RPC("SetSlowMotionOff", RpcTarget.AllBuffered);
+                        //Debug.Log(tempIndexCharacter + "/" + characterSelect);
+                        if (tempIndexCharacter != characterSelect)
+                        {
+                            coinCount.UseCoin(coinUse); 
+                        }
+                    }
+                }
+
                 if (isSlowMotion)
                 {
                     StartSlowMotion();
@@ -65,9 +90,8 @@ namespace GameDev4.Dawn
                 {
                     StopSlowMotion();
                 }
-            }
 
-            SelectCharacter(keyboard);
+                SelectCharacter(keyboard);
         }
 
         [PunRPC]
@@ -75,6 +99,7 @@ namespace GameDev4.Dawn
         {
             isSlowMotion = true;
             characterChangeUI.SetActive(true);
+            characterPanel.SetActive(false);
         }
 
         [PunRPC]
@@ -82,6 +107,7 @@ namespace GameDev4.Dawn
         {
             isSlowMotion = false;
             characterChangeUI.SetActive(false);
+            characterPanel.SetActive(true);
         }
 
         private void StartSlowMotion()
@@ -99,7 +125,7 @@ namespace GameDev4.Dawn
         public void CharacterSelectAnimation()
         {
 
-            if (charecterSelect == 1)
+            if (characterSelect == 1)
             {
                 characterImages[0].rectTransform.sizeDelta = new Vector2(200, 200);
             }
@@ -108,7 +134,7 @@ namespace GameDev4.Dawn
                 characterImages[0].rectTransform.sizeDelta = new Vector2(100, 100);
             }
 
-            if (charecterSelect == 2)
+            if (characterSelect == 2)
             {
                 characterImages[1].rectTransform.sizeDelta = new Vector2(200, 200);
             }
@@ -117,7 +143,7 @@ namespace GameDev4.Dawn
                 characterImages[1].rectTransform.sizeDelta = new Vector2(100, 100);
             }
 
-            if (charecterSelect == 3)
+            if (characterSelect == 3)
             {
                 characterImages[2].rectTransform.sizeDelta = new Vector2(200, 200);
             }
@@ -131,10 +157,10 @@ namespace GameDev4.Dawn
         {
             if (isSlowMotion)
             {
-                tempCharacterSelect = charecterSelect;
+                tempCharacterSelect = characterSelect;
                 if (playerInfo._isPlayer1 && keyboard[player1ChangeCharacterKeyLeft].wasPressedThisFrame)
                 {
-                    if (charecterSelect > 1)
+                    if (characterSelect > 1)
                     {
                         tempCharacterSelect--;
                         photonView.RPC("UpdateCharacterSelect", RpcTarget.AllBuffered, tempCharacterSelect);
@@ -142,7 +168,7 @@ namespace GameDev4.Dawn
                 }
                 else if (playerInfo._isPlayer1 && keyboard[player1ChangeCharacterKeyRight].wasPressedThisFrame)
                 {
-                    if (charecterSelect < 3)
+                    if (characterSelect < 3)
                     {
                         tempCharacterSelect++;
                         photonView.RPC("UpdateCharacterSelect", RpcTarget.AllBuffered, tempCharacterSelect);
@@ -150,7 +176,7 @@ namespace GameDev4.Dawn
                 }
                 else if (playerInfo._isPlayer2 && keyboard[player2ChangeCharacterKeyLeft].wasPressedThisFrame)
                 {
-                    if (charecterSelect > 1)
+                    if (characterSelect > 1)
                     {
                         tempCharacterSelect--;
                         photonView.RPC("UpdateCharacterSelect", RpcTarget.AllBuffered, tempCharacterSelect);
@@ -158,7 +184,7 @@ namespace GameDev4.Dawn
                 }
                 else if (playerInfo._isPlayer2 && keyboard[player2ChangeCharacterKeyRight].wasPressedThisFrame)
                 {
-                    if (charecterSelect < 3)
+                    if (characterSelect < 3)
                     {
                         tempCharacterSelect++;
                         photonView.RPC("UpdateCharacterSelect", RpcTarget.AllBuffered, tempCharacterSelect);
@@ -167,11 +193,23 @@ namespace GameDev4.Dawn
             }
         }
 
+        public void ChangeCharacterWithItem(int index)
+        {
+            photonView.RPC("UpdateCharacterSelect", RpcTarget.AllBuffered, index);
+        }
+
         [PunRPC]
         private void UpdateCharacterSelect(int tempCharacterSelect)
         {
-            charecterSelect = tempCharacterSelect;
+            characterSelect = tempCharacterSelect;
             CharacterSelectAnimation();
+            PlaySoundUISwitchingBird();
+            onCharacterChange?.Invoke(characterSelect);
+        }
+
+        private void PlaySoundUISwitchingBird()
+        {
+            FindObjectOfType<AudioManager>().Play("Sfx_UISwitchingBird");
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
+using UnityEngine.UI;
 
 namespace GameDev4.Dawn
 {
@@ -34,6 +35,7 @@ namespace GameDev4.Dawn
             if (m_PlayerInfo._isPlayer1)
             {
                 transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+                photonView.RPC("UIButtonMoveUp", RpcTarget.All);
             }
         }
 
@@ -42,7 +44,48 @@ namespace GameDev4.Dawn
             if (m_PlayerInfo._isPlayer1)
             {
                 transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+                photonView.RPC("UIButtonMoveDown", RpcTarget.All);
             }
+        }
+
+        public override void OnUpKeyReleased()
+        {
+            if (m_PlayerInfo._isPlayer1)
+            {
+                photonView.RPC("ResetColorButtonUp", RpcTarget.All);
+            }
+        }
+
+        public override void OnDownKeyReleased()
+        {
+            if (m_PlayerInfo._isPlayer1)
+            {
+                photonView.RPC("ResetColorButtonDown", RpcTarget.All);
+            }
+        }
+
+        [PunRPC]
+        public void UIButtonMoveUp()
+        {
+            imageButtonUp.color = colorWhenPressed;
+        }
+
+        [PunRPC]
+        public void UIButtonMoveDown()
+        {
+            imageButtonDown.color = colorWhenPressed;
+        }
+
+        [PunRPC]
+        public void ResetColorButtonUp()
+        {
+            imageButtonUp.color = Color.white;
+        }
+
+        [PunRPC]
+        public void ResetColorButtonDown()
+        {
+            imageButtonDown.color = Color.white;
         }
 
         protected virtual void PerformInteraction()

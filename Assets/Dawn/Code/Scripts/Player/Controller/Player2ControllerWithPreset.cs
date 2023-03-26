@@ -41,6 +41,7 @@ namespace GameDev4.Dawn
             if (m_PlayerInfo._isPlayer2)
             {
                 transform.Translate(Vector3.up * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+                photonView.RPC("UIButtonMoveUp", RpcTarget.All);
             }
         }
 
@@ -49,6 +50,47 @@ namespace GameDev4.Dawn
             if (m_PlayerInfo._isPlayer2)
             {
                 transform.Translate(Vector3.down * m_Preset._moveSpeed * Time.deltaTime, Space.World);
+                photonView.RPC("UIButtonMoveDown", RpcTarget.All);
+            }
+        }
+
+        [PunRPC]
+        public void UIButtonMoveUp()
+        {
+            imageButtonUp.color = colorWhenPressed;
+        }
+
+        [PunRPC]
+        public void UIButtonMoveDown()
+        {
+            imageButtonDown.color = colorWhenPressed;
+        }
+
+        [PunRPC]
+        public void ResetColorButtonUp()
+        {
+            imageButtonUp.color = Color.white;
+        }
+
+        [PunRPC]
+        public void ResetColorButtonDown()
+        {
+            imageButtonDown.color = Color.white;
+        }
+
+        public override void OnUpKeyReleased()
+        {
+            if (m_PlayerInfo._isPlayer2)
+            {
+                photonView.RPC("ResetColorButtonUp", RpcTarget.All);
+            }
+        }
+
+        public override void OnDownKeyReleased()
+        {
+            if (m_PlayerInfo._isPlayer2)
+            {
+                photonView.RPC("ResetColorButtonDown", RpcTarget.All);
             }
         }
 

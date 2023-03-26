@@ -5,6 +5,58 @@ using Photon.Pun;
 
 namespace GameDev4.Dawn
 {
+    public class RigidbodyLagCompensation : MonoBehaviourPun, IPunObservable
+    {
+        private Rigidbody _rigidbody;
+        private Vector3 _netPosition;
+        private Quaternion _netRotation;
+
+        [SerializeField] private float _interpolationSmooth = 5.0f;
+        [SerializeField] private float _teleportDistanceThreshold = 5.0f;
+
+        private void Awake()
+        {
+            PhotonNetwork.SendRate = 90;
+            PhotonNetwork.SerializationRate = 45;
+
+            _rigidbody = GetComponent<Rigidbody>();
+        }
+
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+
+            if (stream.IsWriting)
+            {
+                stream.SendNext(_rigidbody.position);
+                stream.SendNext(_rigidbody.rotation);
+            }
+            else
+            {
+                _netPosition = (Vector3)stream.ReceiveNext();
+                _netRotation = (Quaternion)stream.ReceiveNext();
+
+                if (Vector3.Distance(_rigidbody.position, _netPosition) > _teleportDistanceThreshold)
+                {
+                    _rigidbody.position = _netPosition;
+                    _rigidbody.rotation = _netRotation;
+                }
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if (photonView.IsMine) return;
+
+            _rigidbody.position = Vector3.Lerp(_rigidbody.position, _netPosition, _interpolationSmooth * Time.fixedDeltaTime);
+            _rigidbody.rotation = Quaternion.Lerp(_rigidbody.rotation, _netRotation, _interpolationSmooth * Time.fixedDeltaTime);
+        }
+    }
+}
+
+#region Old Version
+
+/*namespace GameDev4.Dawn
+{
     public class RigidbodyLagCompensation : MonoBehaviourPunCallbacks, IPunObservable
     {
         Rigidbody _rigidbody;
@@ -23,8 +75,8 @@ namespace GameDev4.Dawn
 
         private void Awake()
         {
-            PhotonNetwork.SendRate = 100;
-            PhotonNetwork.SerializationRate = 30;
+            PhotonNetwork.SendRate = 1000;
+            PhotonNetwork.SerializationRate = 500;
 
             _rigidbody = gameObject.GetComponent<Rigidbody>();
         }
@@ -71,4 +123,5 @@ namespace GameDev4.Dawn
             }
         }
     }
-}
+}*/
+#endregion

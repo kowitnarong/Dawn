@@ -33,25 +33,28 @@ namespace GameDev4.Dawn
         [SerializeField] private PlayerControllerSettingsPreset _player1;
         [SerializeField] private PlayerControllerSettingsPreset _player2;
 
+        private int indexRoom = 1;
+
         private void Start()
         {
             PhotonNetwork.JoinLobby();
         }
+
         public void OnClickCreate()
         {
-            if (string.IsNullOrEmpty(roomInputfield.text))
+            /*if (string.IsNullOrEmpty(roomInputfield.text))
             {
                 return;
-            }
-
-            PhotonNetwork.CreateRoom(roomInputfield.text, new RoomOptions { MaxPlayers = 2, BroadcastPropsChangeToAll = true });
+            }*/
+            PhotonNetwork.CreateRoom(PhotonNetwork.NickName, new RoomOptions { MaxPlayers = 2, BroadcastPropsChangeToAll = true });
+            //isHost = true;
         }
 
         public override void OnJoinedRoom()
         {
             lobbyPanel.SetActive(false);
             roomPanel.SetActive(true);
-            roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
+            roomName.text = "Room: " + PhotonNetwork.CurrentRoom.Name + "'s";
             UpdatePlayerList();
         }
 
@@ -66,6 +69,7 @@ namespace GameDev4.Dawn
 
         void UpdateRoomList(List<RoomInfo> list)
         {
+            indexRoom = 1;
             foreach (PunRoomItem item in roomItemsList)
             {
                 Destroy(item.gameObject);
@@ -75,9 +79,15 @@ namespace GameDev4.Dawn
             foreach (RoomInfo room in list)
             {
                 PunRoomItem newRoom = Instantiate(roomItemPrefab, contentObject);
-                newRoom.SetRoomName(room.Name);
+                newRoom.SetRoomName(indexRoom++, room.Name);
+                newRoom.SetRoomPlayers(room.PlayerCount, room.MaxPlayers);
                 roomItemsList.Add(newRoom);
             }
+        }
+
+        public void ClickUpdateRoomList()
+        {
+            PhotonNetwork.JoinLobby();
         }
 
         public void JoinRoom(string roomName)
@@ -89,6 +99,26 @@ namespace GameDev4.Dawn
         {
             PhotonNetwork.LeaveRoom();
             playReadyCount = 0;
+        }
+
+        public void Kick()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
+                {
+                    Kick(player.Value);
+                }
+            }
+            else
+            {
+                OnClickLeaveRoom();
+            }
+        }
+
+        private void Kick(Photon.Realtime.Player playerToKick)
+        {
+            PhotonNetwork.CloseConnection(playerToKick);
         }
 
         public override void OnLeftRoom()
@@ -104,8 +134,14 @@ namespace GameDev4.Dawn
             PhotonNetwork.JoinLobby();
         }
 
+        public void OnDisconnected()
+        {
+            PhotonNetwork.Disconnect();
+        }
+
         void UpdatePlayerList()
         {
+           
             foreach (PunPlayerItem item in playerItemsList)
             {
                 Destroy(item.gameObject);
@@ -120,7 +156,8 @@ namespace GameDev4.Dawn
             foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
             {
                 PunPlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
-                newPlayerItem.SetPlayerInfo(player.Value);
+
+                newPlayerItem.SetPlayerInfo(player.Value, player.Value.ActorNumber);
 
                 if (player.Value == PhotonNetwork.LocalPlayer)
                 {
@@ -157,9 +194,7 @@ namespace GameDev4.Dawn
 
         public void OnClickStartGame()
         {
-            PhotonNetwork.LoadLevel("SampleLevel_test");
+            PhotonNetwork.LoadLevel("Level 1");
         }
-
-
     }
 }
