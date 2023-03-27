@@ -3,7 +3,17 @@ guid: 65c2b15e8fee5284c8f53067d415e254
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Heart
+    second: {fileID: 2100000, guid: 7a75cb7b86ab61c4e819aafaaaee6cd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Marble
+    second: {fileID: 2100000, guid: 63a0c1d3031b446449c6ebc55082b070, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

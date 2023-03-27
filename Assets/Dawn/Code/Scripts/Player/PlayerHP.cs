@@ -22,6 +22,12 @@ namespace GameDev4.Dawn
         [Header("Scene Manager")]
         [SerializeField] private GameAppFlowManager gameAppFlowManager;
         [SerializeField] private Animator transition;
+        [Header("Particle")]
+        [SerializeField] private PlayerAbility playerAbility;
+        [SerializeField] private ParticleSystem particleBirdHeal;
+        [SerializeField] private ParticleSystem particleBirdHurtSummer;
+        [SerializeField] private ParticleSystem particleBirdHurtRain;
+        [SerializeField] private ParticleSystem particleBirdHurtWinter;
 
         [HideInInspector] public bool isGameOver = false;
 
@@ -59,6 +65,7 @@ namespace GameDev4.Dawn
             if (PhotonNetwork.IsMasterClient)
             {
                 photonView.RPC("PlaySoundBirdHeal", RpcTarget.All);
+                photonView.RPC("PlayParticleHeal", RpcTarget.All);
                 if (currentHP >= maxHP)
                 {
                     return;
@@ -80,6 +87,18 @@ namespace GameDev4.Dawn
                 if (isGameOver == false)
                 {
                     photonView.RPC("PlaySoundBirdHurt", RpcTarget.All);
+                    if (playerAbility.m_playerAbility == PlayerAbility.playerAbility.summer)
+                    {
+                        photonView.RPC("PlayParticleHurtSummer", RpcTarget.All);
+                    }
+                    else if (playerAbility.m_playerAbility == PlayerAbility.playerAbility.rain)
+                    {
+                        photonView.RPC("PlayParticleHurtRain", RpcTarget.All);
+                    }
+                    else if (playerAbility.m_playerAbility == PlayerAbility.playerAbility.winter)
+                    {
+                        photonView.RPC("PlayParticleHurtWinter", RpcTarget.All);
+                    }
                     photonView.RPC("UpdateHP", RpcTarget.All, currentHP);
                 }
             }
@@ -114,6 +133,30 @@ namespace GameDev4.Dawn
         public void PlaySoundBirdHeal()
         {
             FindObjectOfType<AudioManager>().Play("Sfx_collectHealItem");
+        }
+
+        [PunRPC]
+        public void PlayParticleHeal()
+        {
+            particleBirdHeal.Play();
+        }
+
+        [PunRPC]
+        public void PlayParticleHurtSummer()
+        {
+            particleBirdHurtSummer.Play();
+        }
+
+        [PunRPC]
+        public void PlayParticleHurtRain()
+        {
+            particleBirdHurtRain.Play();
+        }
+
+        [PunRPC]
+        public void PlayParticleHurtWinter()
+        {
+            particleBirdHurtWinter.Play();
         }
 
         [PunRPC]

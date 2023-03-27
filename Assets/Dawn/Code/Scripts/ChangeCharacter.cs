@@ -46,6 +46,9 @@ namespace GameDev4.Dawn
 
         public event Action<int> onCharacterChange;
 
+        [Header("----------Particle----------")]
+        [SerializeField] private ParticleSystem particleBirdSwitched;
+
         void Start()
         {
             startTimeScale = Time.timeScale;
@@ -77,7 +80,8 @@ namespace GameDev4.Dawn
                         //Debug.Log(tempIndexCharacter + "/" + characterSelect);
                         if (tempIndexCharacter != characterSelect)
                         {
-                            coinCount.UseCoin(coinUse); 
+                            photonView.RPC("PlayParticleBirdSwitched", RpcTarget.All);
+                            coinCount.UseCoin(coinUse);
                         }
                     }
                 }
@@ -210,6 +214,12 @@ namespace GameDev4.Dawn
         private void PlaySoundUISwitchingBird()
         {
             FindObjectOfType<AudioManager>().Play("Sfx_UISwitchingBird");
+        }
+
+        [PunRPC]
+        private void PlayParticleBirdSwitched()
+        {
+            particleBirdSwitched.Play();
         }
     }
 }
