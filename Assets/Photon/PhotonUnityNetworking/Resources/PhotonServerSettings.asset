@@ -71,6 +71,12 @@ MonoBehaviour:
   - PlaySoundDestroy
   - PlaySoundHitBird
   - PlaySoundUseCoin
+  - PlayParticleBirdSwitched
+  - PlayParticleHeal
+  - PlayParticleHurtRain
+  - PlayParticleHurtSummer
+  - PlayParticleHurtWinter
+  - SpawnParticleMonsterDie
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

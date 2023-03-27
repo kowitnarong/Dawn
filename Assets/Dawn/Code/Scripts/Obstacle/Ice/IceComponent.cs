@@ -14,6 +14,10 @@ namespace GameDev4.Dawn
 
         [SerializeField] private int damage = 1;
 
+        [Header("Particle")]
+        [SerializeField] private GameObject transformParticle;
+        [SerializeField] private GameObject particleMonsterDie;
+
         public void Interact(GameObject actor)
         {
 
@@ -37,6 +41,7 @@ namespace GameDev4.Dawn
                            if (PhotonNetwork.IsMasterClient)
                             {
                                 photonView.RPC("PlaySoundDestroy", RpcTarget.All);
+                                photonView.RPC("SpawnParticleMonsterDie", RpcTarget.All);
                             }
                         }
                         break;
@@ -58,6 +63,13 @@ namespace GameDev4.Dawn
             {
                 PhotonNetwork.Destroy(this.gameObject);
             }
+        }
+
+        [PunRPC]
+        private void SpawnParticleMonsterDie()
+        {
+            GameObject particle = Instantiate(particleMonsterDie, transformParticle.transform.position, Quaternion.identity);
+            Destroy(particle, 1f);
         }
 
         [PunRPC]

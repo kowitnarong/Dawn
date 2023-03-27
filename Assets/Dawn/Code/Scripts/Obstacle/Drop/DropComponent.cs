@@ -20,6 +20,10 @@ namespace GameDev4.Dawn
         [Header("Destroy Time")]
         [SerializeField] private float destroyTime = 5f;
 
+        [Header("Particle")]
+        [SerializeField] private GameObject transformParticle;
+        [SerializeField] private GameObject particleMonsterDie;
+
         private void Start()
         {
             playerHP = GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerHP>();
@@ -55,6 +59,7 @@ namespace GameDev4.Dawn
                             if (PhotonNetwork.IsMasterClient)
                             {
                                 photonView.RPC("PlaySoundDestroy", RpcTarget.All);
+                                photonView.RPC("SpawnParticleMonsterDie", RpcTarget.All);
                             }
                         }
                         break;
@@ -109,6 +114,13 @@ namespace GameDev4.Dawn
                     currentAbility = "winter";
                     break;
             }
+        }
+
+        [PunRPC]
+        private void SpawnParticleMonsterDie()
+        {
+            GameObject particle = Instantiate(particleMonsterDie, transformParticle.transform.position, Quaternion.identity);
+            Destroy(particle, 1f);
         }
 
         [PunRPC]
