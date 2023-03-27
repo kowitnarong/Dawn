@@ -15,12 +15,18 @@ namespace GameDev4.Dawn
         public Image imageButtonUp;
         public Image imageButtonDown;
         public Color colorWhenPressed;
+        public bool isCanMove = false;
 
         protected virtual void Update()
         {
             Keyboard keyboard = Keyboard.current;
 
             if (PunGameManager.isPause)
+            {
+                return;
+            }
+            
+            if (isCanMove == false)
             {
                 return;
             }
