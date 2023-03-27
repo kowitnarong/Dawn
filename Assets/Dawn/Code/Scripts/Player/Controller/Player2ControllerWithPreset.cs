@@ -54,6 +54,11 @@ namespace GameDev4.Dawn
             }
         }
 
+        public void EnableCanMove()
+        {
+            isCanMove = true;
+        }
+
         [PunRPC]
         public void UIButtonMoveUp()
         {
