@@ -10,6 +10,7 @@ namespace GameDev4.Dawn
 
         void OnBecameInvisible()
         {
+            //Debug.Log("Player is invisible");
             playerHP.TakeDamage(99);
         }
     }
