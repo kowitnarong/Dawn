@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
@@ -9,11 +10,12 @@ namespace GameDev4.Dawn
     public class CoinCount : MonoBehaviourPun
     {
         public int currentCoin = 0;
-        [SerializeField] private TextMeshProUGUI coinText;
+
+        public event Action<int> onCoinCountChange;
 
         private void Start()
         {
-            coinText.text = "Coin: " + currentCoin.ToString();
+            
         }
 
         public void AddCoin(int coin)
@@ -37,7 +39,7 @@ namespace GameDev4.Dawn
         public void UpdateCoinAll(int newCoin)
         {
             currentCoin = newCoin;
-            coinText.text = "Coin: " + currentCoin.ToString();
+            onCoinCountChange?.Invoke(currentCoin);
         }
 
         [PunRPC]
