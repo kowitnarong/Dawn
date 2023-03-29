@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6848134223808322146}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.083, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -101,6 +101,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 45708310627924977, guid: 67cfd30534c32d7409c8cb4fff41deb7, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 45708310627924991, guid: 67cfd30534c32d7409c8cb4fff41deb7, type: 3}
       propertyPath: m_Name
       value: ParticleEffect_BirdHurt_Winter
@@ -123,6 +127,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParticleEffect_BirdHeal
       objectReference: {fileID: 0}
+    - target: {fileID: 3025853793999841031, guid: 2ac83140f07c6aa4eaa473901df46e95, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3025853793999841048, guid: 2ac83140f07c6aa4eaa473901df46e95, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -133,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3025853793999841048, guid: 2ac83140f07c6aa4eaa473901df46e95, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.083
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3025853793999841048, guid: 2ac83140f07c6aa4eaa473901df46e95, type: 3}
       propertyPath: m_LocalPosition.z
@@ -225,6 +233,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 45708310627924977, guid: d56b6e5c8e94c4248854c3422ba3c717, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 45708310627924991, guid: d56b6e5c8e94c4248854c3422ba3c717, type: 3}
       propertyPath: m_Name
       value: ParticleEffect_BirdHurt_Summer
@@ -247,6 +259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParticalEffect_BirdSwitched
       objectReference: {fileID: 0}
+    - target: {fileID: 4461890826249315098, guid: cbae6116e70f981408a93dd59444d6dd, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7062148908890314216, guid: cbae6116e70f981408a93dd59444d6dd, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -257,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7062148908890314216, guid: cbae6116e70f981408a93dd59444d6dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.083
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7062148908890314216, guid: cbae6116e70f981408a93dd59444d6dd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -347,6 +363,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 45708310627924976, guid: a508e36897897994294a497d7653bc5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 45708310627924977, guid: a508e36897897994294a497d7653bc5c, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 45708310627924991, guid: a508e36897897994294a497d7653bc5c, type: 3}

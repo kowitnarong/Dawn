@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using System;
 
 namespace GameDev4.Dawn
 {
@@ -11,7 +12,7 @@ namespace GameDev4.Dawn
         public int maxHP = 4;
         public int currentHP;
 
-        [SerializeField] private TextMeshProUGUI hpText;
+        //[SerializeField] private TextMeshProUGUI hpText;
 
         [Header("Game Over UI")]
         [SerializeField] private GameObject gameOverUIMasterClient;
@@ -31,10 +32,12 @@ namespace GameDev4.Dawn
 
         [HideInInspector] public bool isGameOver = false;
 
+        public event Action<int> onPlayerHPChange;
+
         private void Start()
         {
             currentHP = maxHP;
-            hpText.text = "HP: " + currentHP.ToString();
+            //hpText.text = "HP: " + currentHP.ToString();
         }
 
         [PunRPC]
@@ -108,7 +111,8 @@ namespace GameDev4.Dawn
         public void UpdateHP(int newHP)
         {
             currentHP = newHP;
-            hpText.text = "HP: " + currentHP.ToString();
+            //hpText.text = "HP: " + currentHP.ToString();
+            onPlayerHPChange?.Invoke(currentHP);
             if (currentHP <= 0 && isGameOver == false)
             {
                 punGameManager.PauseGame(true);
