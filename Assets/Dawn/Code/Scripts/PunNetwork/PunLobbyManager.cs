@@ -141,7 +141,7 @@ namespace GameDev4.Dawn
 
         void UpdatePlayerList()
         {
-           
+
             foreach (PunPlayerItem item in playerItemsList)
             {
                 Destroy(item.gameObject);
@@ -194,6 +194,8 @@ namespace GameDev4.Dawn
 
         public void OnClickStartGame()
         {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            PhotonNetwork.CurrentRoom.IsVisible = false;
             PhotonNetwork.LoadLevel("Level 1");
         }
     }

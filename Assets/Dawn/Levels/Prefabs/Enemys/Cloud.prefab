@@ -16730,6 +16730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPrefab: {fileID: 9028105115142531106, guid: b3bf261d553226a4cb110853fb622f32, type: 3}
+  spawnPoint: {fileID: 5094497344853767673}
   spawnInterval: 2
   playerHP: {fileID: 0}
 --- !u!54 &-8843494738666968439

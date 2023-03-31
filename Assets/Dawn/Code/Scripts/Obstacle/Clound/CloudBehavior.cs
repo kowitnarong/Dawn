@@ -9,6 +9,7 @@ namespace GameDev4.Dawn
     {
         [SerializeField] private GameObject dropPrefab;
         private Transform spawnArea;
+        [SerializeField] private Transform spawnPoint;
         [SerializeField] private float spawnInterval = 1f;
         [SerializeField] PlayerHP playerHP;
 
@@ -23,9 +24,9 @@ namespace GameDev4.Dawn
             if (!PhotonNetwork.IsConnected)
                 return;
 
-            Vector3 randomPos = new Vector3(Random.Range(-spawnArea.localScale.x / 2, spawnArea.localScale.x / 2), 0, Random.Range(-spawnArea.localScale.z / 2, spawnArea.localScale.z / 2));
+            Vector3 randomPos = new Vector3(Random.Range(-spawnArea.localScale.x / 2, spawnArea.localScale.x / 2), 0, 0);
             if (PhotonNetwork.IsMasterClient && playerHP.isGameOver == false)
-                PhotonNetwork.Instantiate(dropPrefab.name, spawnArea.position + randomPos, Quaternion.identity);
+                PhotonNetwork.Instantiate(dropPrefab.name, spawnPoint.position + randomPos, Quaternion.identity);
         }
     }
 }
