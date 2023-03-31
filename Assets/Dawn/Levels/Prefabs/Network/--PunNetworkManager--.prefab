@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2316499035098612609}
   - component: {fileID: 1251800128}
   - component: {fileID: 1251800129}
+  - component: {fileID: 4791788912710913436}
+  - component: {fileID: 3256609684832749896}
   m_Layer: 0
   m_Name: --PunNetworkManager--
   m_TagString: Untagged
@@ -41,7 +43,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4810838742293509912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fa9d1fa7b4eb4543ac0dee421c8a2d5, type: 3}
   m_Name: 
@@ -50,7 +52,7 @@ MonoBehaviour:
   Version: 1
   MaxPlayers: 2
   playerTTL: -1
-  _inputActions: {fileID: 0}
+  _inputActions: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
 --- !u!114 &1251800128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,9 +71,9 @@ MonoBehaviour:
     y: 0
     width: 300
     height: 300
-  DontDestroy: 1
+  DontDestroy: 0
   ServerTimestamp: 0
-  DetailedConnection: 1
+  DetailedConnection: 0
   Server: 0
   AppVersion: 0
   UserId: 0
@@ -97,3 +99,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPlayer1: 0
   _isPlayer2: 0
+--- !u!114 &4791788912710913436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810838742293509912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc99904013c2de544a019e25960d37ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sPause: 0
+--- !u!114 &3256609684832749896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810838742293509912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32b6b17671cd9f40bea7685e346d73f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCount: 2
+  _lostConnectionPanel: {fileID: 0}
+  _GameObjectsToDisable: []
