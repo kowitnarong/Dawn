@@ -68,34 +68,34 @@ namespace GameDev4.Dawn
             }
 
             if (coinCount.currentCoin >= coinUse)
+            {
+                if (keyboard[startCharacterKey].isPressed && isSlowMotion == false)
                 {
-                    if (keyboard[startCharacterKey].isPressed && isSlowMotion == false)
+                    tempIndexCharacter = characterSelect;
+                    photonView.RPC("SetSlowMotionOn", RpcTarget.AllBuffered);
+                }
+                else if (keyboard[startCharacterKey].wasReleasedThisFrame && isSlowMotion == true)
+                {
+                    photonView.RPC("SetSlowMotionOff", RpcTarget.AllBuffered);
+                    //Debug.Log(tempIndexCharacter + "/" + characterSelect);
+                    if (tempIndexCharacter != characterSelect)
                     {
-                        tempIndexCharacter = characterSelect;
-                        photonView.RPC("SetSlowMotionOn", RpcTarget.AllBuffered);
-                    }
-                    else if (keyboard[startCharacterKey].wasReleasedThisFrame && isSlowMotion == true)
-                    {
-                        photonView.RPC("SetSlowMotionOff", RpcTarget.AllBuffered);
-                        //Debug.Log(tempIndexCharacter + "/" + characterSelect);
-                        if (tempIndexCharacter != characterSelect)
-                        {
-                            photonView.RPC("PlayParticleBirdSwitched", RpcTarget.All);
-                            coinCount.UseCoin(coinUse);
-                        }
+                        photonView.RPC("PlayParticleBirdSwitched", RpcTarget.All);
+                        coinCount.UseCoin(coinUse);
                     }
                 }
+            }
 
-                if (isSlowMotion)
-                {
-                    StartSlowMotion();
-                }
-                else
-                {
-                    StopSlowMotion();
-                }
+            if (isSlowMotion)
+            {
+                StartSlowMotion();
+            }
+            else
+            {
+                StopSlowMotion();
+            }
 
-                SelectCharacter(keyboard);
+            SelectCharacter(keyboard);
         }
 
         [PunRPC]
@@ -199,7 +199,11 @@ namespace GameDev4.Dawn
 
         public void ChangeCharacterWithItem(int index)
         {
-            photonView.RPC("UpdateCharacterSelect", RpcTarget.AllBuffered, index);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                photonView.RPC("UpdateCharacterSelect", RpcTarget.AllBuffered, index);
+                photonView.RPC("PlayParticleBirdSwitched", RpcTarget.All);
+            }
         }
 
         [PunRPC]
@@ -214,6 +218,11 @@ namespace GameDev4.Dawn
         private void PlaySoundUISwitchingBird()
         {
             FindObjectOfType<AudioManager>().Play("Sfx_UISwitchingBird");
+        }
+
+        public void PlayParticleChangeCharacterWithItem()
+        {
+            photonView.RPC("PlayParticleBirdSwitched", RpcTarget.All);
         }
 
         [PunRPC]

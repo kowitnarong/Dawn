@@ -43,7 +43,7 @@ namespace GameDev4.Dawn
             OnCountdownTimerHasExpired -= OnCountdownTimerIsExpired;
         }
 
-        public void Start()
+        public void SignalStart()
         {
             StartTime();
             Time.timeScale = 1;
