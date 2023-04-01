@@ -160,13 +160,13 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   Level3:
-    name: 
-    clip: {fileID: 0}
+    name: Level3
+    clip: {fileID: 8300000, guid: c61453b1c19539247af2178ae046151f, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 0.2
+    pitch: 1
     spatial: 0
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   Menu:
     name: Menu_Scene

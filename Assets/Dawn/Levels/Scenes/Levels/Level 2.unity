@@ -10866,7 +10866,7 @@ GameObject:
   - component: {fileID: 398398696}
   m_Layer: 0
   m_Name: RainZone
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14739,7 +14739,7 @@ GameObject:
   - component: {fileID: 500503763}
   m_Layer: 0
   m_Name: SummerZone
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15808,7 +15808,7 @@ GameObject:
   - component: {fileID: 525368624}
   m_Layer: 0
   m_Name: WinterZone (1)
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41429,7 +41429,7 @@ GameObject:
   - component: {fileID: 1553183606}
   m_Layer: 0
   m_Name: WinterZone
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41931,7 +41931,7 @@ GameObject:
   - component: {fileID: 1561759288}
   m_Layer: 0
   m_Name: SummerZone (1)
-  m_TagString: Untagged
+  m_TagString: Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
