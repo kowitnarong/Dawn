@@ -11366,13 +11366,41 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 3774033931769084744, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
+      propertyPath: nextLevel
+      value: Level 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774033931769084744, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 477733863}
+    - target: {fileID: 3774033931769084744, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
+      propertyPath: punGameTimer
+      value: 
+      objectReference: {fileID: 1155328064}
+    - target: {fileID: 3774033931769084744, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
+      propertyPath: ClientWinPanel
+      value: 
+      objectReference: {fileID: 1253217733}
+    - target: {fileID: 3774033931769084744, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
+      propertyPath: MasterWinPanel
+      value: 
+      objectReference: {fileID: 1552328345}
+    - target: {fileID: 3774033931769084744, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
+      propertyPath: punGameManager
+      value: 
+      objectReference: {fileID: 4791788912710913436}
+    - target: {fileID: 3774033931769084744, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
+      propertyPath: gameAppFlowManager
+      value: 
+      objectReference: {fileID: 1967948165}
     - target: {fileID: 4954361310169111580, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7190781574934652058, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8932136218972584820, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11382,9 +11410,7 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3774033931769084744, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
-    - {fileID: 163713923800380338, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c537e1cf612aa4ea7895b645df764f, type: 3}
 --- !u!4 &400062264 stripped
 Transform:
