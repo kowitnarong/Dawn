@@ -125,7 +125,7 @@ MonoBehaviour:
     spatial: 0
     loop: 0
     source: {fileID: 0}
-  - name: Sfx_Win
+  - name: Sfx_win
     clip: {fileID: 8300000, guid: 417f9a25a01e81c4c876a45e68b903c0, type: 3}
     mixerGroup: {fileID: 29516861310412515, guid: 38e1f477c09aa1047bc0372f6ad4b1d0, type: 2}
     volume: 0.2
@@ -160,13 +160,13 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   Level3:
-    name: 
-    clip: {fileID: 0}
+    name: Level3
+    clip: {fileID: 8300000, guid: c61453b1c19539247af2178ae046151f, type: 3}
     mixerGroup: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 0.2
+    pitch: 1
     spatial: 0
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   Menu:
     name: Menu_Scene
