@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2316499035098612609}
   - component: {fileID: 1251800128}
   - component: {fileID: 1251800129}
-  - component: {fileID: 4791788912710913436}
   - component: {fileID: 3256609684832749896}
+  - component: {fileID: 4791788912710913436}
   m_Layer: 0
   m_Name: --PunNetworkManager--
   m_TagString: Untagged
@@ -99,19 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPlayer1: 0
   _isPlayer2: 0
---- !u!114 &4791788912710913436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4810838742293509912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc99904013c2de544a019e25960d37ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sPause: 0
 --- !u!114 &3256609684832749896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,4 +113,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCount: 2
   _lostConnectionPanel: {fileID: 0}
-  _GameObjectsToDisable: []
+  _GameObjectsToDisable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  isTest: 0
+--- !u!114 &4791788912710913436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810838742293509912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc99904013c2de544a019e25960d37ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sPause: 0
