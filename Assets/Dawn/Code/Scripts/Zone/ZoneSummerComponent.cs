@@ -9,6 +9,7 @@ namespace GameDev4.Dawn
         [SerializeField] Rigidbody rb;
         [SerializeField] PlayerAbility _playerAbility;
         [SerializeField] private string currentAbility;
+        [SerializeField] private GameObject slowIcon;
 
         [Header("Setting (Less more faster)")]
         [SerializeField] private float defaultSpeed = 0.2f;
@@ -44,10 +45,12 @@ namespace GameDev4.Dawn
                             if (currentAbility == "winter")
                             {
                                 rb.drag = speedWhenDeduct;
+                                slowIcon.SetActive(true);
                             }
                             else
                             {
                                 rb.drag = defaultSpeed;
+                                slowIcon.SetActive(false);
                             }
                             break;
                     }

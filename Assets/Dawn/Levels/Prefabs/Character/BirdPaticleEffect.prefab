@@ -260,6 +260,10 @@ PrefabInstance:
       value: ParticalEffect_BirdSwitched
       objectReference: {fileID: 0}
     - target: {fileID: 4461890826249315098, guid: cbae6116e70f981408a93dd59444d6dd, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461890826249315098, guid: cbae6116e70f981408a93dd59444d6dd, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}

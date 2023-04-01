@@ -14,7 +14,16 @@ namespace GameDev4.Dawn
         private void Start()
         {
             changeCharacter.onCharacterChange += CharacterSelectImage;
+        }
+
+        private void OnEnable()
+        {
             InitCharacterUI();
+        }
+
+        private void OnDisable()
+        {
+
         }
 
         private void OnDestroy()
@@ -28,17 +37,17 @@ namespace GameDev4.Dawn
             {
                 case 1:
                     characterUI[0].canvasRenderer.SetAlpha(1f);
-                    characterUI[1].canvasRenderer.SetAlpha(0.6f);
-                    characterUI[2].canvasRenderer.SetAlpha(0.6f);
+                    characterUI[1].canvasRenderer.SetAlpha(0.5f);
+                    characterUI[2].canvasRenderer.SetAlpha(0.5f);
                     break;
                 case 2:
-                    characterUI[0].canvasRenderer.SetAlpha(0.6f);
+                    characterUI[0].canvasRenderer.SetAlpha(0.5f);
                     characterUI[1].canvasRenderer.SetAlpha(1f);
-                    characterUI[2].canvasRenderer.SetAlpha(0.6f);
+                    characterUI[2].canvasRenderer.SetAlpha(0.5f);
                     break;
                 case 3:
-                    characterUI[0].canvasRenderer.SetAlpha(0.6f);
-                    characterUI[1].canvasRenderer.SetAlpha(0.6f);
+                    characterUI[0].canvasRenderer.SetAlpha(0.5f);
+                    characterUI[1].canvasRenderer.SetAlpha(0.5f);
                     characterUI[2].canvasRenderer.SetAlpha(1f);
                     break;
             }
@@ -50,17 +59,17 @@ namespace GameDev4.Dawn
             {
                 case 1:
                     characterUI[0].canvasRenderer.SetAlpha(1f);
-                    characterUI[1].canvasRenderer.SetAlpha(0.6f);
-                    characterUI[2].canvasRenderer.SetAlpha(0.6f);
+                    characterUI[1].canvasRenderer.SetAlpha(0.5f);
+                    characterUI[2].canvasRenderer.SetAlpha(0.5f);
                     break;
                 case 2:
-                    characterUI[0].canvasRenderer.SetAlpha(0.6f);
+                    characterUI[0].canvasRenderer.SetAlpha(0.5f);
                     characterUI[1].canvasRenderer.SetAlpha(1f);
-                    characterUI[2].canvasRenderer.SetAlpha(0.6f);
+                    characterUI[2].canvasRenderer.SetAlpha(0.5f);
                     break;
                 case 3:
-                    characterUI[0].canvasRenderer.SetAlpha(0.6f);
-                    characterUI[1].canvasRenderer.SetAlpha(0.6f);
+                    characterUI[0].canvasRenderer.SetAlpha(0.5f);
+                    characterUI[1].canvasRenderer.SetAlpha(0.5f);
                     characterUI[2].canvasRenderer.SetAlpha(1f);
                     break;
             }
