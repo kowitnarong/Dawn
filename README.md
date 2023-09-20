@@ -1,13 +1,6 @@
-                 ——-††††——-
-                 ——-††††——-
-                ††††††††††††
-                ††††††††††††
-                 ——-††††——-
-                 ——-††††——-
-                 ——-††††——-
-                 ——-††††——-
-                 ——-††††——-
-                 ——-††††——-
+Dawn_GameProject
+Student Project, 3rd-year student.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            Jesus Bless:  "No Bugs"
+มหาวิทยาลัยเชียงใหม่ : Chiang Mai University, THAILAND.
+
+College of Arts, Media and Technology.
